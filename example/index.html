@@ -20,8 +20,6 @@
             <img src="https://slidesjs.com/img/example-slide-350-1.jpg" alt="Slider #1">
             <!--Для плавных переходов при пограничных значениях-->
         </div>
-        <div id="actions" class="button-container">
-        </div>
     </div>
     <div id="slider-container-2" class="slider-container">
         <div id="slider" class="slider">
@@ -46,24 +44,23 @@
                 <!--Для плавных переходов при пограничных значениях-->
             </div>
         </div>
-        <div id="actions-2" class="button-container">
-        </div>
     </div>
     <script src="../src/app/slider.js"></script>
     <script>
-        const sliderContainer = document.getElementById('slider-container')
-        const buttonContainer = document.getElementById('actions')
-        const sliderContainer2 = document.getElementById('slider-container-2')
-        const buttonContainer2 = document.getElementById('actions-2')
-        createSlider(sliderContainer, buttonContainer, {
-            numberOfElements: 4,
-            size: 740
-        })
-        createSlider(sliderContainer2, buttonContainer2, {
-            numberOfElements: 4,
-            size: 940,
-            timeout: 2000
-        })
+        document.addEventListener("DOMContentLoaded", function (event) {
+            const sliderContainer = document.getElementById('slider-container')
+            const sliderContainer2 = document.getElementById('slider-container-2')
+            createSlider(sliderContainer, {
+                numberOfElements: 4,
+                hideControls: true,
+                size: 740
+            })
+            createSlider(sliderContainer2, {
+                numberOfElements: 4,
+                size: 940,
+                timeout: 2000
+            })
+        });
     </script>
 </body>
 
