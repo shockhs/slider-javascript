@@ -1,15 +1,14 @@
 const defaultConfiguration = {
     width: 940,
     height: 270,
-    numberOfElements: 4,
     timeout: 3000
 }
 
 function createSlider(sliderContainer, buttonContainer, configuration) {
-
+    if (!configuration.numberOfElements) throw new Error('Во входных данных пропущено обязательное свойство numberOfElements')
+    const elements = configuration.numberOfElements
     const width = configuration.width ? configuration.width : defaultConfiguration.width
     const height = configuration.height ? configuration.height : defaultConfiguration.height
-    const elements = configuration.numberOfElements ? configuration.numberOfElements : defaultConfiguration.numberOfElements
     const timeout = configuration.timeout ? configuration.timeout : defaultConfiguration.timeout
 
     sliderContainer.style.width = width + 'px'

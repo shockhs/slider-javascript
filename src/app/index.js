@@ -7,11 +7,11 @@ const sliderContainer2 = document.getElementById('slider-container-2')
 const buttonContainer2 = document.getElementById('actions-2')
 
 createSlider(sliderContainer, buttonContainer, {
-    elements: 4,
+    numberOfElements: 4,
     size: 740
 })
 createSlider(sliderContainer2, buttonContainer2, {
-    elements: 4,
+    numberOfElements: 4,
     size: 940,
     timeout: 2000
 })
