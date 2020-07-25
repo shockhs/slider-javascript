@@ -4,7 +4,7 @@ const defaultConfiguration = {
     timeout: 3000
 }
 
-function createSlider(sliderContainer, configuration) {
+function createSlider(slider, configuration) {
     if (!configuration.numberOfElements) throw new Error('Во входных данных пропущено обязательное свойство numberOfElements')
     const elements = configuration.numberOfElements
     const width = configuration.width ? configuration.width : defaultConfiguration.width
@@ -12,9 +12,12 @@ function createSlider(sliderContainer, configuration) {
     const hideControls = configuration.hideControls !== undefined ? configuration.hideControls : false
     const timeout = configuration.timeout ? configuration.timeout : defaultConfiguration.timeout
 
+    const sliderContainer = document.createElement('div')
+    sliderContainer.className = 'slider-container'
+    sliderContainer.append(slider)
+    document.body.append(sliderContainer)
     sliderContainer.style.width = width + 'px'
     sliderContainer.style.height = height + 'px'
-    const slider = sliderContainer.childNodes[0].nodeName === '#text' ? sliderContainer.childNodes[1] : sliderContainer.childNodes[0]
 
     let counter = 1
     let statusPresentation = true
@@ -23,7 +26,7 @@ function createSlider(sliderContainer, configuration) {
     slider.style.transform = 'translateX(' + (-width * counter) + 'px)'
 
     let buttonContainer, btnPlayPause, btnLeft, btnRight, btnPrev, btnNext, btnHideActionBar
-    
+
     if (!hideControls) {
         buttonContainer = document.createElement('div')
         buttonContainer.className = 'button-container'
