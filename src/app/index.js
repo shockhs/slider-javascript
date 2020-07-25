@@ -1,10 +1,11 @@
-import createSlider from './slider'
+import { createSlider } from './slider'
 import '../styles/style.css'
 
 const sliderContainer = document.getElementById('slider-container')
 const buttonContainer = document.getElementById('actions')
 const sliderContainer2 = document.getElementById('slider-container-2')
 const buttonContainer2 = document.getElementById('actions-2')
+
 createSlider(sliderContainer, buttonContainer, {
     elements: 4,
     size: 740

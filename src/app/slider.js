@@ -5,8 +5,7 @@ const defaultConfiguration = {
     timeout: 3000
 }
 
-export default function createSlider(sliderContainer, buttonContainer, configuration) {
-
+function createSlider(sliderContainer, buttonContainer, configuration) {
 
     const width = configuration.width ? configuration.width : defaultConfiguration.width
     const height = configuration.height ? configuration.height : defaultConfiguration.height
@@ -15,8 +14,7 @@ export default function createSlider(sliderContainer, buttonContainer, configura
 
     sliderContainer.style.width = width + 'px'
     sliderContainer.style.height = height + 'px'
-    const slider = sliderContainer.childNodes[0]
-
+    const slider = sliderContainer.childNodes[0].nodeName === '#text' ? sliderContainer.childNodes[1] : sliderContainer.childNodes[0]
 
     let counter = 1
     let statusPresentation = true
@@ -145,3 +143,5 @@ export default function createSlider(sliderContainer, buttonContainer, configura
     })
 
 }
+
+module.exports = { createSlider }

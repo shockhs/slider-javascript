@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Slider App</title>
+    <link rel="stylesheet" href="./style.css">
 </head>
 
 <body>
@@ -48,8 +49,22 @@
         <div id="actions-2" class="button-container">
         </div>
     </div>
-
-
+    <script src="../src/app/slider.js"></script>
+    <script>
+        const sliderContainer = document.getElementById('slider-container')
+        const buttonContainer = document.getElementById('actions')
+        const sliderContainer2 = document.getElementById('slider-container-2')
+        const buttonContainer2 = document.getElementById('actions-2')
+        createSlider(sliderContainer, buttonContainer, {
+            elements: 4,
+            size: 740
+        })
+        createSlider(sliderContainer2, buttonContainer2, {
+            elements: 4,
+            size: 940,
+            timeout: 2000
+        })
+    </script>
 </body>
 
 </html>
