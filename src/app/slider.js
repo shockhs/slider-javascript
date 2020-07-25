@@ -141,6 +141,28 @@ function createSlider(slider, configuration) {
         }, timeout)
     }
 
+    let startPosition
+
+    slider.addEventListener('touchstart', (event) => {
+        startPosition = event.changedTouches[0].clientX
+    }, false)
+
+
+    slider.addEventListener('touchend', (event) => {
+        if (event.changedTouches[0].clientX - startPosition > 0) {
+            if (counter < 0) return
+            slider.style.transition = 'transform 0.7s ease-in-out'
+            counter--
+            slider.style.transform = 'translateX(' + (-width * counter) + 'px)'
+            if (statusPresentation) resetInterval()
+        } else {
+            if (counter > elements + 1) return
+            slider.style.transition = 'transform 0.7s ease-in-out'
+            counter++
+            slider.style.transform = 'translateX(' + (-width * counter) + 'px)'
+            if (statusPresentation) resetInterval()
+        }
+    }, false)
 
     slider.addEventListener('transitionend', () => {
         if (counter > elements) {
