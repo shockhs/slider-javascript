@@ -5,25 +5,39 @@ html {
 }
 
 * {
-  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
   margin: 0;
   padding: 0;
 }
 
 .slider-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  flex-direction: column;
-  justify-content: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
   position: relative;
-  align-items: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   width: 940px;
   overflow: hidden;
   margin: 20px auto;
 }
 
 .slider {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  align-items: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   width: 100%;
   height: 100%;
 }
@@ -43,8 +57,12 @@ html {
   bottom: 0;
   margin-top: 20px;
   padding: 20px;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  justify-content: space-between;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
 }
 
 .btnPrev {
@@ -55,13 +73,19 @@ html {
   border: 30px solid #fff;
   border-top-color: transparent;
   border-right-color: transparent;
-  transform-origin: 50% 50%;
-  transform: rotate(45deg);
+  -webkit-transform-origin: 50% 50%;
+      -ms-transform-origin: 50% 50%;
+          transform-origin: 50% 50%;
+  -webkit-transform: rotate(45deg);
+      -ms-transform: rotate(45deg);
+          transform: rotate(45deg);
 }
 
 .play-button {
   height: 60px;
   width: 70px;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
   overflow: hidden;
   cursor: pointer;
@@ -73,6 +97,8 @@ html {
   border-width: 15px;
   border-style: solid;
   border-color: #fff;
+  -webkit-transition: all 0.2s ease-in;
+  -o-transition: all 0.2s ease-in;
   transition: all 0.2s ease-in;
   overflow: hidden;
 }
@@ -80,6 +106,8 @@ html {
   border-width: 15px;
   border-style: solid;
   border-color: #fff;
+  -webkit-transition: all 0.2s ease-in;
+  -o-transition: all 0.2s ease-in;
   transition: all 0.2s ease-in;
 }
 .paused .left {
@@ -90,7 +118,9 @@ html {
 .paused .right {
   border-width: 30px 0px 30px 30px;
   border-color: transparent transparent transparent #fff;
-  transform: scaleY(0.5);
+  -webkit-transform: scaleY(0.5);
+      -ms-transform: scaleY(0.5);
+          transform: scaleY(0.5);
 }
 
 .btnPause {
@@ -125,7 +155,9 @@ html {
   border-style: solid;
   border-width: 30px;
   border-color: #fff transparent transparent transparent;
-  transform-origin: 50% 50%;
+  -webkit-transform-origin: 50% 50%;
+      -ms-transform-origin: 50% 50%;
+          transform-origin: 50% 50%;
 }
 
 .btnNext {
@@ -136,6 +168,10 @@ html {
   border: 30px solid #fff;
   border-left-color: transparent;
   border-bottom-color: transparent;
-  transform-origin: 50% 50%;
-  transform: rotate(45deg);
+  -webkit-transform-origin: 50% 50%;
+      -ms-transform-origin: 50% 50%;
+          transform-origin: 50% 50%;
+  -webkit-transform: rotate(45deg);
+      -ms-transform: rotate(45deg);
+          transform: rotate(45deg);
 }

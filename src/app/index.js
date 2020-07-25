@@ -1,4 +1,5 @@
 import createSlider from './slider'
+import '../styles/style.css'
 
 const sliderContainer = document.getElementById('slider-container')
 const buttonContainer = document.getElementById('actions')

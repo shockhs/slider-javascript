@@ -13,13 +13,10 @@ const chunkname = ext => isDevelopment ? `static/${ext}/[name].chunk.${ext}` : `
 
 
 module.exports = {
-    entry: [
-        './src/js/index.js',
-        './src/js/slider.js',
-        './src/css/style.css'
-    ],
+    context: path.resolve(__dirname, 'src'),
+    entry: ['@babel/polyfill','./app/index.js'],
     output: {
-        filename: 'js/[name].js',
+        filename: filename('js'),
         path: path.resolve(__dirname, 'dist'),
     },
     resolve: {
@@ -27,14 +24,15 @@ module.exports = {
         extensions: ['.wasm', '.mjs', '.js', '.jsx', '.ts', '.tsx', '.json']
     },
     devServer: {
-        contentBase: path.resolve(__dirname, 'build'),
+        contentBase: path.resolve(__dirname, 'dist'),
         hot: isDevelopment,
         port: 4200
     },
+    devtool: isDevelopment ? 'source-map' : '',
     module: {
         rules: [
             {
-                test: /\.css$/,
+                test: /\.css$/i,
                 use: [
                     {
                         loader: MiniCssExtractPlugin.loader,
@@ -43,7 +41,8 @@ module.exports = {
                             reloadAll: true
                         }
                     },
-                    'css-loader'],
+                    'css-loader'
+                ],
             },
             {
                 test: /\.js$/,
@@ -61,30 +60,21 @@ module.exports = {
     },
     optimization: {
         minimizer: [
-            new TerserPlugin({
-                parallel: true,
-            }),
-            new OptimizeCssAssetsPlugin({}),
+            new OptimizeCssAssetsPlugin(),
+            new TerserPlugin(),
         ],
-    },
-    watchOptions: {
-        poll: 1000,
-        ignored: /node_modules/,
     },
     plugins: [
         new HtmlWebpackPlugin({
-            template: './public/index.html',
+            template: 'index.html',
             minify: {
                 collapseWhitespace: isProduction
             }
         }),
+        new CleanWebpackPlugin(),
         new MiniCssExtractPlugin({
             filename: filename('css'),
             chunkFilename: chunkname('css'),
-        }),
-        new CleanWebpackPlugin({
-            cleanStaleWebpackAssets: false,
-            verbose: true,
         })
     ],
 };
