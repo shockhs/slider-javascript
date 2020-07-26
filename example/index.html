@@ -9,21 +9,7 @@
 </head>
 
 <body>
-    <div id="slider" class="slider">
-        <img src="https://slidesjs.com/img/example-slide-350-4.jpg" alt="Slider #4">
-        <!--Для плавных переходов при пограничных значениях-->
-        <img src="https://slidesjs.com/img/example-slide-350-1.jpg" alt="Slider #1">
-        <img src="https://slidesjs.com/img/example-slide-350-2.jpg" alt="Slider #2">
-        <img src="https://slidesjs.com/img/example-slide-350-3.jpg" alt="Slider #3">
-        <img src="https://slidesjs.com/img/example-slide-350-4.jpg" alt="Slider #4">
-        <img src="https://slidesjs.com/img/example-slide-350-1.jpg" alt="Slider #1">
-        <!--Для плавных переходов при пограничных значениях-->
-    </div>
     <div id="slider-2" class="slider">
-        <div>
-            <img src="https://slidesjs.com/img/example-slide-350-4.jpg" alt="Slider #4" />
-            <!--Для плавных переходов при пограничных значениях-->
-        </div>
         <div>
             <img src="https://slidesjs.com/img/example-slide-350-1.jpg" alt="Slider #1" />
         </div>
@@ -36,23 +22,14 @@
         <div>
             <img src="https://slidesjs.com/img/example-slide-350-4.jpg" alt="Slider #4" />
         </div>
-        <div>
-            <img src="https://slidesjs.com/img/example-slide-350-1.jpg" alt="Slider #1" />
-            <!--Для плавных переходов при пограничных значениях-->
-        </div>
     </div>
     <script src="../src/app/slider.js"></script>
     <script>
         document.addEventListener("DOMContentLoaded", function (event) {
-            const slider = document.getElementById('slider')
             const slider2 = document.getElementById('slider-2')
-            createSlider(slider, {
+            const slider = new sliderJS(slider2, {
                 numberOfElements: 4,
-                hideControls: true,
-                size: 740
-            })
-            createSlider(slider2, {
-                numberOfElements: 4,
+                buttonsSize: 30,
                 size: 940,
                 timeout: 2000
             })
