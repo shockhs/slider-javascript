@@ -115,6 +115,7 @@ function sliderJS(slider, { // export надо сделать
     }
 
     let startPosition
+    
 
     slidesContainer.addEventListener('touchstart', (event) => {
         event.preventDefault()
@@ -122,11 +123,13 @@ function sliderJS(slider, { // export надо сделать
         startPosition = event.changedTouches[0].clientX
     }, false)
 
+
     slidesContainer.addEventListener('mousedown', (event) => {
         event.preventDefault()
         clearInterval(presentation)
         startPosition = event.clientX
     }, false)
+
 
     slidesContainer.addEventListener('mouseup', (event) => {
         event.preventDefault()
@@ -139,7 +142,9 @@ function sliderJS(slider, { // export надо сделать
         }
     }, false)
 
+
     slidesContainer.addEventListener('touchend', (event) => {
+        event.preventDefault()
         if (event.changedTouches[0].clientX - startPosition > 0) {
             simulationPrevClick()
             if (statusPresentation) resetInterval()
