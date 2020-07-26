@@ -23,27 +23,9 @@ module.exports = {
         modules: [path.resolve(__dirname, 'src'), 'node_modules'],
         extensions: ['.wasm', '.mjs', '.js', '.jsx', '.ts', '.tsx', '.json']
     },
-    devServer: {
-        contentBase: path.resolve(__dirname, 'dist'),
-        hot: isDevelopment,
-        port: 4200
-    },
     devtool: isDevelopment ? 'source-map' : '',
     module: {
         rules: [
-            {
-                test: /\.css$/i,
-                use: [
-                    {
-                        loader: MiniCssExtractPlugin.loader,
-                        options: {
-                            hmr: isDevelopment,
-                            reloadAll: true
-                        }
-                    },
-                    'css-loader'
-                ],
-            },
             {
                 test: /\.js$/,
                 exclude: /node-modules/,
@@ -60,21 +42,10 @@ module.exports = {
     },
     optimization: {
         minimizer: [
-            new OptimizeCssAssetsPlugin(),
             new TerserPlugin(),
         ],
     },
     plugins: [
-        new HtmlWebpackPlugin({
-            template: 'index.html',
-            minify: {
-                collapseWhitespace: isProduction
-            }
-        }),
-        new CleanWebpackPlugin(),
-        new MiniCssExtractPlugin({
-            filename: filename('css'),
-            chunkFilename: chunkname('css'),
-        })
+        new CleanWebpackPlugin()
     ],
 };
