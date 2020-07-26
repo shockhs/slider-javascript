@@ -1,4 +1,4 @@
-export function sliderJS(slider, {
+function sliderJS(slider, { // export надо сделать
     width = 940,
     height = 270,
     buttonsSize = 15,
