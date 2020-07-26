@@ -5,7 +5,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Slider App</title>
-    <link rel="stylesheet" href="../src/styles/style.css">
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+        #slider-2 img {
+            width: 100%;
+        }
+    </style>
 </head>
 
 <body>
@@ -23,7 +30,7 @@
             <img src="https://slidesjs.com/img/example-slide-350-4.jpg" alt="Slider #4" />
         </div>
     </div>
-    <script src="../src/app/slider.js"></script>
+    <script src="../src/slider.js"></script>
     <script>
         document.addEventListener("DOMContentLoaded", function (event) {
             const slider2 = document.getElementById('slider-2')
