@@ -14,7 +14,7 @@ const chunkname = ext => isDevelopment ? `static/${ext}/[name].chunk.${ext}` : `
 
 module.exports = {
     context: path.resolve(__dirname, 'src'),
-    entry: ['@babel/polyfill','./app/index.js'],
+    entry: ['@babel/polyfill','./slider.js'],
     output: {
         filename: filename('js'),
         path: path.resolve(__dirname, 'dist'),
