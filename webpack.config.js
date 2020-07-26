@@ -20,11 +20,6 @@ module.exports = {
         modules: [path.resolve(__dirname, 'src'), 'node_modules'],
         extensions: ['.wasm', '.mjs', '.js', '.jsx', '.ts', '.tsx', '.json']
     },
-    devServer: {
-        contentBase: path.resolve(__dirname, 'dist'),
-        hot: isDevelopment,
-        port: 4200
-    },
     devtool: isDevelopment ? 'source-map' : '',
     module: {
         rules: [
@@ -48,6 +43,6 @@ module.exports = {
         ],
     },
     plugins: [
-        new CleanWebpackPlugin(),
+        new CleanWebpackPlugin()
     ],
 };
