@@ -6,7 +6,7 @@ html {
 
 * {
   -webkit-box-sizing: border-box;
-          box-sizing: border-box;
+  box-sizing: border-box;
   margin: 0;
   padding: 0;
 }
@@ -17,16 +17,16 @@ html {
   display: flex;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
   -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
   position: relative;
   -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  width: 940px;
+  -ms-flex-align: center;
+  align-items: center;
+  width: 100%;
   overflow: hidden;
   margin: 20px auto;
 }
@@ -36,8 +36,8 @@ html {
   display: -ms-flexbox;
   display: flex;
   -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
   width: 100%;
   height: 100%;
 }
@@ -52,6 +52,7 @@ html {
 }
 
 .button-container {
+  outline: none;
   position: absolute;
   width: 100%;
   bottom: 0;
@@ -61,27 +62,12 @@ html {
   display: -ms-flexbox;
   display: flex;
   -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
-}
-
-.btnPrev {
-  cursor: pointer;
-  border: none;
-  outline: none;
-  background-color: transparent;
-  border: 30px solid #fff;
-  border-top-color: transparent;
-  border-right-color: transparent;
-  -webkit-transform-origin: 50% 50%;
-      -ms-transform-origin: 50% 50%;
-          transform-origin: 50% 50%;
-  -webkit-transform: rotate(45deg);
-      -ms-transform: rotate(45deg);
-          transform: rotate(45deg);
+  -ms-flex-pack: justify;
+  justify-content: space-between;
 }
 
 .play-button {
+  outline: none;
   height: 60px;
   width: 70px;
   display: -webkit-box;
@@ -92,6 +78,7 @@ html {
   position: relative;
 }
 .left {
+  outline: none;
   margin-right: 10px;
   height: 100%;
   border-width: 15px;
@@ -103,6 +90,7 @@ html {
   overflow: hidden;
 }
 .right {
+  outline: none;
   border-width: 15px;
   border-style: solid;
   border-color: #fff;
@@ -119,8 +107,8 @@ html {
   border-width: 30px 0px 30px 30px;
   border-color: transparent transparent transparent #fff;
   -webkit-transform: scaleY(0.5);
-      -ms-transform: scaleY(0.5);
-          transform: scaleY(0.5);
+  -ms-transform: scaleY(0.5);
+  transform: scaleY(0.5);
 }
 
 .btnPause {
@@ -140,6 +128,7 @@ html {
 .btnPlay {
   cursor: pointer;
   border: none;
+  outline: nmo;
   background-color: transparent;
   outline: none;
   border-style: solid;
@@ -156,8 +145,8 @@ html {
   border-width: 30px;
   border-color: #fff transparent transparent transparent;
   -webkit-transform-origin: 50% 50%;
-      -ms-transform-origin: 50% 50%;
-          transform-origin: 50% 50%;
+  -ms-transform-origin: 50% 50%;
+  transform-origin: 50% 50%;
 }
 
 .btnNext {
@@ -165,13 +154,20 @@ html {
   border: none;
   outline: none;
   background-color: transparent;
-  border: 30px solid #fff;
-  border-left-color: transparent;
+  border: solid #fff;
+  border-width: 30px 0px 30px 60px;
+  border-top-color: transparent;
   border-bottom-color: transparent;
-  -webkit-transform-origin: 50% 50%;
-      -ms-transform-origin: 50% 50%;
-          transform-origin: 50% 50%;
-  -webkit-transform: rotate(45deg);
-      -ms-transform: rotate(45deg);
-          transform: rotate(45deg);
+}
+
+.btnPrev {
+  outline: none;
+  cursor: pointer;
+  border: none;
+  outline: none;
+  background-color: transparent;
+  border: 30px solid #fff;
+  border-width: 30px 60px 30px 0px;
+  border-top-color: transparent;
+  border-bottom-color: transparent;
 }
