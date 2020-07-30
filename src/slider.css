@@ -1,0 +1,133 @@
+.btnRightDefaultStyles {
+  outline: none;
+  border-width: 15px;
+  border-style: solid;
+  border-color: #000;
+  -webkit-transition: all 0.2s ease-in;
+  -o-transition: all 0.2s ease-in;
+  transition: all 0.2s ease-in;
+}
+
+.btnRightActiveStyles {
+  border-width: 15px 0px 15px 15px;
+  border-color: transparent transparent transparent #000;
+  -webkit-transform: scaleY(0.5);
+  -ms-transform: scaleY(0.5);
+  transform: scaleY(0.5);
+}
+.btnLeftDefaultStyles {
+  outline: none;
+  margin-right: 10px;
+  height: 100%;
+  border-width: 7.5px;
+  border-style: solid;
+  border-color: #000;
+  -webkit-transition: all 0.2s ease-in;
+  -o-transition: all 0.2s ease-in;
+  transition: all 0.2s ease-in;
+  overflow: hidden;
+}
+.btnLeftActiveStyles {
+  border-width: 7.5px 0px 7.5px 15px;
+  border-color: transparent transparent transparent #000;
+  margin: 0;
+}
+.buttonContainerStyles {
+  outline: none;
+  width: 100%;
+  bottom: 0;
+  margin-top: 20px;
+  padding: 20px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+}
+.btnPlayPauseStyles {
+  outline: none;
+  height: 30px;
+  width: 40px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  overflow: hidden;
+  cursor: pointer;
+  position: relative;
+  -webkit-transition: opacity 0.7s ease-in-out;
+  -o-transition: opacity 0.7s ease-in-out;
+  transition: opacity 0.7s ease-in-out;
+}
+.btnHideActionBarStyles {
+  cursor: pointer;
+  border: none;
+  background-color: transparent;
+  outline: none;
+  border-style: solid;
+  border-width: 15px;
+  padding-left: 0;
+  padding-right: 0;
+  border-color: #000 transparent transparent transparent;
+  -webkit-transform-origin: 50% 50%;
+  -ms-transform-origin: 50% 50%;
+  transform-origin: 50% 50%;
+}
+.btnPrevStyles {
+  outline: none;
+  cursor: pointer;
+  border: none;
+  outline: none;
+  background-color: transparent;
+  border: 15px solid #000;
+  border-width: 15px 30px 15px 0px;
+  border-top-color: transparent;
+  border-bottom-color: transparent;
+  -webkit-transition: opacity 0.7s ease-in-out;
+  -o-transition: opacity 0.7s ease-in-out;
+  transition: opacity 0.7s ease-in-out;
+}
+.btnNextStyles {
+  cursor: pointer;
+  border: none;
+  outline: none;
+  background-color: transparent;
+  border: solid #000;
+  border-width: 15px 0px 15px 30px;
+  border-top-color: transparent;
+  border-bottom-color: transparent;
+  -webkit-transition: opacity 0.7s ease-in-out;
+  -o-transition: opacity 0.7s ease-in-out;
+  transition: opacity 0.7s ease-in-out;
+}
+
+.imageDefault {
+  display: none;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  width: 100%;
+  z-index: 0;
+  -webkit-backface-visibility: hidden;
+          backface-visibility: hidden;
+}
+
+.controlContainer {
+  position: relative;
+  left: 0px;
+  width: 940px;
+  height: 270px;
+}
+
+.slidesContainer {
+  overflow: hidden;
+  position: relative;
+  width: 940px;
+  height: 270px;
+}
+
+.slider {
+  overflow: hidden;
+  display: block;
+}
+
