@@ -3,13 +3,19 @@
   border-width: 15px;
   border-style: solid;
   border-color: #000;
+  -webkit-transition: border 0.2s ease-in, -webkit-transform 0.2s ease-in;
+  transition: border 0.2s ease-in, -webkit-transform 0.2s ease-in;
+  -o-transition: transform 0.2s ease-in, border 0.2s ease-in;
   transition: transform 0.2s ease-in, border 0.2s ease-in;
+  transition: transform 0.2s ease-in, border 0.2s ease-in, -webkit-transform 0.2s ease-in;
 }
 
 .btnRightActiveStyles {
   border-width: 15px 0px 15px 15px;
   border-color: transparent transparent transparent #000;
-  transform: scaleY(0.5);
+  -webkit-transform: scaleY(0.5);
+      -ms-transform: scaleY(0.5);
+          transform: scaleY(0.5);
 }
 .btnLeftDefaultStyles {
   outline: none;
@@ -18,6 +24,8 @@
   border-width: 7.5px;
   border-style: solid;
   border-color: #000;
+  -webkit-transition: border 0.2s ease-in, margin 0.2s ease-in;
+  -o-transition: border 0.2s ease-in, margin 0.2s ease-in;
   transition: border 0.2s ease-in, margin 0.2s ease-in;
   overflow: hidden;
 }
@@ -120,4 +128,3 @@
   overflow: hidden;
   display: block;
 }
-
