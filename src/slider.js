@@ -178,8 +178,6 @@
             btnPlayPause.append(btnLeft, btnRight)
             btnPlayPause.style.transition = 'opacity 0.7s ease-in-out'
 
-            let isPlayPauseDisabled = false
-
             const btnPrev = document.createElement('button')
             const btnNext = document.createElement('button')
             const btnHideActionBar = document.createElement('button')
@@ -195,7 +193,6 @@
                 btnPlayPause.style.opacity = 0
                 btnNext.disabled = true
                 btnPrev.disabled = true
-                isPlayPauseDisabled = true
                 btnPlayPause.classList.add('disabledButton')
             }
 
@@ -205,7 +202,6 @@
                 btnPlayPause.style.opacity = 1
                 btnNext.disabled = false
                 btnPrev.disabled = false
-                isPlayPauseDisabled = false
                 btnPlayPause.classList.remove('disabledButton')
             }
 
@@ -231,17 +227,13 @@
                 if (statusPresentation) {
                     btnLeft.classList.add('btnLeftActiveStyles')
                     btnRight.classList.add('btnRightActiveStyles')
-                    if (!isPlayPauseDisabled) {
-                        statusPresentation = false
-                        clearInterval(presentation)
-                    }
+                    statusPresentation = false
+                    clearInterval(presentation)
                 } else {
                     btnLeft.className = 'btnLeftDefaultStyles'
                     btnRight.className = 'btnRightDefaultStyles'
-                    if (!isPlayPauseDisabled) {
-                        statusPresentation = true
-                        resetInterval()
-                    }
+                    statusPresentation = true
+                    resetInterval()
                 }
             })
 
