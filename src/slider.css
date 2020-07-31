@@ -115,15 +115,11 @@
 .controlContainer {
   position: relative;
   left: 0px;
-  width: 940px;
-  height: 270px;
 }
 
 .slidesContainer {
   overflow: hidden;
   position: relative;
-  width: 940px;
-  height: 270px;
 }
 
 .slider {

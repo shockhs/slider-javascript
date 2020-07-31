@@ -1,12 +1,13 @@
 (function () {
 
-    const sliderJS = function (slider, { // export надо сделать
+    const sliderJS = function (slider, {
         width = 940,
         height = 270,
         timeout = 3000,
         hideControls = false
     }) {
         const checkedWidth = (window.innerWidth > 0) && window.innerWidth >= width ? width : window.innerWidth;
+
         const numberOfElements = slider.children.length;
         const slidesContainer = document.createElement('div')
         const controlContainer = document.createElement('div')
@@ -14,10 +15,10 @@
 
         controlContainer.className = 'controlContainer'
         slidesContainer.className = 'slidesContainer'
-        controlContainer.style.width = checkedWidth
-        controlContainer.style.height = checkedWidth
-        slidesContainer.style.width = checkedWidth
-        slidesContainer.style.height = height
+        slidesContainer.style.width = checkedWidth+'px'
+        slidesContainer.style.height = height+'px'
+        controlContainer.style.width = checkedWidth+'px'
+        controlContainer.style.height = height+'px'
 
         controlContainer.append(...slider.children)
         slidesContainer.append(controlContainer)
