@@ -178,6 +178,7 @@
             btnPlayPause.append(btnLeft, btnRight)
             btnPlayPause.style.transition = 'opacity 0.7s ease-in-out'
 
+            let isPlayPauseDisabled = false
 
             const btnPrev = document.createElement('button')
             const btnNext = document.createElement('button')
@@ -192,22 +193,20 @@
                 btnNext.style.opacity = 0
                 btnPrev.style.opacity = 0
                 btnPlayPause.style.opacity = 0
-                setTimeout(() => {
-                    btnPrev.style.display = 'none'
-                    btnNext.style.display = 'none'
-                    btnPlayPause.style.display = 'none'
-                    buttonContainer.style.flexDirection = 'row-reverse'
-                }, 700)
+                btnNext.disabled = true
+                btnPrev.disabled = true
+                isPlayPauseDisabled = true
+                btnPlayPause.classList.add('disabledButton')
             }
 
             const openButtons = () => {
-                btnPrev.style.display = 'block'
-                btnNext.style.display = 'block'
-                btnPlayPause.style.display = 'flex'
-                buttonContainer.style.flexDirection = 'row'
                 btnNext.style.opacity = 1
                 btnPrev.style.opacity = 1
                 btnPlayPause.style.opacity = 1
+                btnNext.disabled = false
+                btnPrev.disabled = false
+                isPlayPauseDisabled = false
+                btnPlayPause.classList.remove('disabledButton')
             }
 
 
@@ -227,17 +226,22 @@
             })
 
 
-            btnPlayPause.addEventListener('click', () => {
+            btnPlayPause.addEventListener('click', (e) => {
+                e.preventDefault()
                 if (statusPresentation) {
                     btnLeft.classList.add('btnLeftActiveStyles')
                     btnRight.classList.add('btnRightActiveStyles')
-                    statusPresentation = false
-                    clearInterval(presentation)
+                    if (!isPlayPauseDisabled) {
+                        statusPresentation = false
+                        clearInterval(presentation)
+                    }
                 } else {
                     btnLeft.className = 'btnLeftDefaultStyles'
                     btnRight.className = 'btnRightDefaultStyles'
-                    statusPresentation = true
-                    resetInterval()
+                    if (!isPlayPauseDisabled) {
+                        statusPresentation = true
+                        resetInterval()
+                    }
                 }
             })
 

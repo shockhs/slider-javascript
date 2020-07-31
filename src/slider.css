@@ -128,3 +128,8 @@
   overflow: hidden;
   display: block;
 }
+
+.disabledButton, button:disabled {
+  pointer-events: none;
+  cursor: default;
+}
