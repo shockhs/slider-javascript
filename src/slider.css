@@ -129,7 +129,11 @@
   display: block;
 }
 
-.disabledButton, button:disabled {
+.disabledButton {
   pointer-events: none;
+  cursor: default;
+}
+
+button:disabled {
   cursor: default;
 }
