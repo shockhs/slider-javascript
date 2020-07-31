@@ -4,10 +4,8 @@ const TerserPlugin = require('terser-webpack-plugin')
 
 
 const isDevelopment = process.env.NODE_ENV === 'development'
-const isProduction = !isDevelopment
 
 const filename = ext => isDevelopment ? `[name].${ext}` : `[name].[contenthash:8].${ext}`
-const chunkname = ext => isDevelopment ? `[name].chunk.${ext}` : `[name].[contenthash:8].chunk.${ext}`
 
 module.exports = {
     context: path.resolve(__dirname, 'src'),
