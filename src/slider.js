@@ -15,10 +15,10 @@
 
         controlContainer.className = 'controlContainer'
         slidesContainer.className = 'slidesContainer'
-        slidesContainer.style.width = checkedWidth+'px'
-        slidesContainer.style.height = height+'px'
-        controlContainer.style.width = checkedWidth+'px'
-        controlContainer.style.height = height+'px'
+        slidesContainer.style.width = checkedWidth + 'px'
+        slidesContainer.style.height = height + 'px'
+        controlContainer.style.width = checkedWidth + 'px'
+        controlContainer.style.height = height + 'px'
 
         controlContainer.append(...slider.children)
         slidesContainer.append(controlContainer)
@@ -205,11 +205,9 @@
                 btnNext.style.display = 'block'
                 btnPlayPause.style.display = 'flex'
                 buttonContainer.style.flexDirection = 'row'
-                setTimeout(() => {
-                    btnNext.style.opacity = 1
-                    btnPrev.style.opacity = 1
-                    btnPlayPause.style.opacity = 1
-                }, 0)
+                btnNext.style.opacity = 1
+                btnPrev.style.opacity = 1
+                btnPlayPause.style.opacity = 1
             }
 
 
