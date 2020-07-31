@@ -229,8 +229,8 @@
 
             btnPlayPause.addEventListener('click', () => {
                 if (statusPresentation) {
-                    btnLeft.className += 'btnLeftActiveStyles'
-                    btnRight.className += 'btnRightActiveStyles'
+                    btnLeft.classList.add('btnLeftActiveStyles')
+                    btnRight.classList.add('btnRightActiveStyles')
                     statusPresentation = false
                     clearInterval(presentation)
                 } else {
