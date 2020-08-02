@@ -1,4 +1,17 @@
 (function () {
+    const svgOuterHTMLElement = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50" id="playpause" xmlns:xlink="http://www.w3.org/1999/xlink">
+                                        <polygon points="7,3 19,3 19,47 7,47" id="leftbar" />
+                                        <polygon points="31,3 43,3 43,26 43,47 31,47" id="rightbar" />
+                                            <animate to="7,3 19,3 19,47 7,47" id="lefttopause" xlink:href="#leftbar" 
+                                    attributeName="points" dur=".3s" begin="indefinite" fill="freeze" />
+                                            <animate to="12,0 25,11.5 25,39 12,50" id="lefttoplay" xlink:href="#leftbar" 
+                                    attributeName="points" dur=".3s" begin="indefinite" fill="freeze" />
+                                            <animate to="31,3 43,3 43,26 43,47 31,47" id="righttopause" xlink:href="#rightbar" 
+                                    attributeName="points" dur=".3s" begin="indefinite" fill="freeze" />
+                                            <animate to="25,11.5 39.7,24.5 41.5,26 39.7,27.4 25,39" id="righttoplay" 
+                                    xlink:href="#rightbar" attributeName="points" dur=".3s" begin="indefinite" fill="freeze" />
+                                    </svg>`
+
 
     const sliderJS = function (slider, {
         width = 940,
@@ -167,23 +180,31 @@
             let statusButtonsVisibility = true
 
             const buttonContainer = document.createElement('div')
-            slider.append(buttonContainer)
-            const btnPlayPause = document.createElement('a')
-            const btnLeft = document.createElement('div')
-            const btnRight = document.createElement('div')
             buttonContainer.className = 'buttonContainerStyles'
-            btnLeft.className = 'btnLeftDefaultStyles'
-            btnPlayPause.className = 'btnPlayPauseStyles'
-            btnRight.className = 'btnRightDefaultStyles'
-            btnPlayPause.append(btnLeft, btnRight)
-            btnPlayPause.style.transition = 'opacity 0.7s ease-in-out'
+            slider.append(buttonContainer)
+            const btnPlayPause = document.createElement('button')
+            const btnPlayPauseSVG = document.createElement('div')
+            btnPlayPause.append(btnPlayPauseSVG)
+            btnPlayPause.style.display = "block";
+            btnPlayPauseSVG.outerHTML = svgOuterHTMLElement
+            const lefttoplay = btnPlayPause.children[0].children[3]
+            const righttoplay = btnPlayPause.children[0].children[5]
+            const lefttopause = btnPlayPause.children[0].children[2]
+            const righttopause = btnPlayPause.children[0].children[4]
 
-            const btnPrev = document.createElement('button')
-            const btnNext = document.createElement('button')
-            const btnHideActionBar = document.createElement('button')
-            btnHideActionBar.className = 'btnHideActionBarStyles'
+
+            const btnPrev = document.createElement('input')
+            const btnNext = document.createElement('input')
+            const btnHideActionBar = document.createElement('input')
             btnPrev.className = 'btnPrevStyles'
             btnNext.className = 'btnNextStyles'
+            btnHideActionBar.className = 'btnHideActionBarStyles'
+            btnPrev.type = 'image'
+            btnPrev.src = './assets/images/arrow.svg'
+            btnNext.type = 'image'
+            btnNext.src = './assets/images/arrow.svg'
+            btnHideActionBar.type = 'image'
+            btnHideActionBar.src = './assets/images/down.svg'
             buttonContainer.append(btnPrev, btnPlayPause, btnNext, btnHideActionBar)
             buttonContainer.style.width = (checkedWidth - 100) + 'px'
 
@@ -193,7 +214,7 @@
                 btnPlayPause.style.opacity = 0
                 btnNext.disabled = true
                 btnPrev.disabled = true
-                btnPlayPause.classList.add('disabledButton')
+                btnPlayPause.disabled = true
             }
 
             const openButtons = () => {
@@ -202,7 +223,7 @@
                 btnPlayPause.style.opacity = 1
                 btnNext.disabled = false
                 btnPrev.disabled = false
-                btnPlayPause.classList.remove('disabledButton')
+                btnPlayPause.disabled = false
             }
 
 
@@ -225,17 +246,17 @@
             btnPlayPause.addEventListener('click', (e) => {
                 e.preventDefault()
                 if (statusPresentation) {
-                    btnLeft.classList.add('btnLeftActiveStyles')
-                    btnRight.classList.add('btnRightActiveStyles')
+                    lefttoplay.beginElement();
+                    righttoplay.beginElement(); 
                     statusPresentation = false
                     clearInterval(presentation)
                 } else {
-                    btnLeft.className = 'btnLeftDefaultStyles'
-                    btnRight.className = 'btnRightDefaultStyles'
+                    lefttopause.beginElement();
+                    righttopause.beginElement();
                     statusPresentation = true
                     resetInterval()
                 }
-            })
+            }, false)
 
             btnNext.addEventListener('click', () => {
                 if (!buttonBlocked) {
