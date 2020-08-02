@@ -7,6 +7,7 @@
   transition: border 0.2s ease-in, -webkit-transform 0.2s ease-in;
   -o-transition: transform 0.2s ease-in, border 0.2s ease-in;
   transition: transform 0.2s ease-in, border 0.2s ease-in;
+  transition: transform 0.2s ease-in, border 0.2s ease-in, -webkit-transform 0.2s ease-in;
   transition: transform 0.2s ease-in, border 0.2s ease-in,
     -webkit-transform 0.2s ease-in;
 }
@@ -44,7 +45,9 @@
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  align-items: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   -webkit-box-pack: justify;
   -ms-flex-pack: justify;
   justify-content: space-between;
@@ -89,7 +92,9 @@
   outline: none;
   width: 100px;
   height: 60px;
-  transform: rotate(180deg);
+  -webkit-transform: rotate(180deg);
+      -ms-transform: rotate(180deg);
+          transform: rotate(180deg);
   -webkit-transition: opacity 0.7s ease-in-out;
   -o-transition: opacity 0.7s ease-in-out;
   transition: opacity 0.7s ease-in-out;
