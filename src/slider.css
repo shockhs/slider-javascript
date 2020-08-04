@@ -1,42 +1,4 @@
-.btnRightDefaultStyles {
-  outline: none;
-  border-width: 15px;
-  border-style: solid;
-  border-color: #000;
-  -webkit-transition: border 0.2s ease-in, -webkit-transform 0.2s ease-in;
-  transition: border 0.2s ease-in, -webkit-transform 0.2s ease-in;
-  -o-transition: transform 0.2s ease-in, border 0.2s ease-in;
-  transition: transform 0.2s ease-in, border 0.2s ease-in;
-  transition: transform 0.2s ease-in, border 0.2s ease-in, -webkit-transform 0.2s ease-in;
-  transition: transform 0.2s ease-in, border 0.2s ease-in,
-    -webkit-transform 0.2s ease-in;
-}
-
-.btnRightActiveStyles {
-  border-width: 15px 0px 15px 15px;
-  border-color: transparent transparent transparent #000;
-  -webkit-transform: scaleY(0.5);
-  -ms-transform: scaleY(0.5);
-  transform: scaleY(0.5);
-}
-.btnLeftDefaultStyles {
-  outline: none;
-  margin-right: 10px;
-  height: 100%;
-  border-width: 7.5px;
-  border-style: solid;
-  border-color: #000;
-  -webkit-transition: border 0.2s ease-in, margin 0.2s ease-in;
-  -o-transition: border 0.2s ease-in, margin 0.2s ease-in;
-  transition: border 0.2s ease-in, margin 0.2s ease-in;
-  overflow: hidden;
-}
-.btnLeftActiveStyles {
-  border-width: 7.5px 0px 7.5px 15px;
-  border-color: transparent transparent transparent #000;
-  margin: 0;
-}
-.buttonContainerStyles {
+.buttonContainer {
   outline: none;
   width: 100%;
   bottom: 0;
@@ -46,37 +8,26 @@
   display: -ms-flexbox;
   display: flex;
   -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
   -webkit-box-pack: justify;
   -ms-flex-pack: justify;
   justify-content: space-between;
 }
-.btnPlayPauseStyles {
-  outline: none;
-  height: 60px;
-  width: 40px;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  overflow: hidden;
-  cursor: pointer;
-  position: relative;
-  -webkit-transition: opacity 0.7s ease-in-out;
-  -o-transition: opacity 0.7s ease-in-out;
-  transition: opacity 0.7s ease-in-out;
-}
-.btnHideActionBarStyles {
+
+
+.btnHideActionBar {
   cursor: pointer;
   border: none;
   outline: none;
   width: 100px;
   height: 60px;
+  transition: transform 0.7s ease-in-out;
   -webkit-transform-origin: 50% 50%;
   -ms-transform-origin: 50% 50%;
   transform-origin: 50% 50%;
 }
-.btnPrevStyles {
+.btnPrev {
   cursor: pointer;
   border: none;
   outline: none;
@@ -86,15 +37,15 @@
   -o-transition: opacity 0.7s ease-in-out;
   transition: opacity 0.7s ease-in-out;
 }
-.btnNextStyles {
+.btnNext {
   cursor: pointer;
   border: none;
   outline: none;
   width: 100px;
   height: 60px;
   -webkit-transform: rotate(180deg);
-      -ms-transform: rotate(180deg);
-          transform: rotate(180deg);
+  -ms-transform: rotate(180deg);
+  transform: rotate(180deg);
   -webkit-transition: opacity 0.7s ease-in-out;
   -o-transition: opacity 0.7s ease-in-out;
   transition: opacity 0.7s ease-in-out;
@@ -129,6 +80,7 @@
 .slider button svg {
   fill: #000;
   height: 60px;
+  display: block;
   margin: 0 auto;
 }
 
@@ -143,6 +95,11 @@
   transition: opacity 0.7s ease-in-out;
 }
 
-button:disabled, input:disabled {
+button:disabled,
+input:disabled {
   cursor: default;
+}
+
+.opacityInvisible {
+  opacity: 0;
 }
