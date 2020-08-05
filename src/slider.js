@@ -47,8 +47,7 @@ import svgOuterHTMLElement from './svg'
 
         const simulationNextClick = () => {
             controlContainer.children[prevNumber].className = 'imageDefault'
-            controlContainer.style.transition = 'transform 0.7s ease-in-out'
-            controlContainer.style.transform = 'translateX(-' + checkedWidth + 'px)'
+            controlContainer.classList.add('nextClick')
 
             if (nextNumber === numberOfElements - 1) {
                 currentNumber = nextNumber
@@ -70,8 +69,7 @@ import svgOuterHTMLElement from './svg'
 
         const simulationPrevClick = () => {
             controlContainer.children[nextNumber].className = 'imageDefault'
-            controlContainer.style.transition = 'transform 0.7s ease-in-out'
-            controlContainer.style.transform = 'translateX(' + checkedWidth + 'px)'
+            controlContainer.classList.add('prevClick')
 
             if (prevNumber === numberOfElements - 1) {
                 currentNumber = prevNumber
@@ -99,11 +97,9 @@ import svgOuterHTMLElement from './svg'
             controlContainer.children[nextNumber].className = 'imageDefault nextNumber'
             controlContainer.children[currentNumber].className = 'imageDefault currentNumber'
             controlContainer.children[prevNumber].className = 'imageDefault prevNumber'
-            controlContainer.style.transition = 'none'
-            controlContainer.style.transform = 'none'
+            controlContainer.className = 'controlContainer'
             buttonBlocked = false
         })
-
 
         // режим презентации
         let presentation = setInterval(() => {
@@ -187,7 +183,6 @@ import svgOuterHTMLElement from './svg'
             btnHideActionBar.type = 'image'
             btnHideActionBar.src = './assets/images/down.svg'
             buttonContainer.append(btnPrev, btnPlayPause, btnNext, btnHideActionBar)
-            buttonContainer.style.width = (checkedWidth - 100) + 'px'
 
             const hideButtons = () => {
                 btnNext.classList.toggle('opacityInvisible')
@@ -210,11 +205,11 @@ import svgOuterHTMLElement from './svg'
 
             btnHideActionBar.addEventListener('click', () => {
                 if (statusButtonsVisibility) {
-                    btnHideActionBar.style.transform = 'rotateX(180deg)'
+                    btnHideActionBar.classList.toggle('hideClick')
                     hideButtons()
                     statusButtonsVisibility = false
                 } else {
-                    btnHideActionBar.style.transform = 'rotateX(0deg)'
+                    btnHideActionBar.classList.toggle('hideClick')
                     openButtons()
                     statusButtonsVisibility = true
                 }

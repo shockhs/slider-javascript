@@ -18,7 +18,7 @@
 
 .buttonContainer {
   outline: none;
-  width: 100%;
+  width: calc(var(--checkedWidth) - 100px);
   bottom: 0;
   padding: 10px;
   margin-top: 10px;
@@ -109,6 +109,20 @@ input:disabled {
 
 .opacityInvisible {
   opacity: 0;
+}
+
+.nextClick {
+  transition: transform 0.7s ease-in-out;
+  transform: translateX(calc(-1 * var(--checkedWidth)));
+}
+
+.prevClick {
+  transition: transform 0.7s ease-in-out;
+  transform: translateX(var(--checkedWidth));
+}
+
+.hideClick {
+  transform: rotateX(180deg);
 }
 
 .prevNumber {
