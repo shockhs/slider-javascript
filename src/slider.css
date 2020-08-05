@@ -39,7 +39,11 @@
   outline: none;
   width: 100px;
   height: 60px;
+  -webkit-transition: -webkit-transform 0.7s ease-in-out;
+  transition: -webkit-transform 0.7s ease-in-out;
+  -o-transition: transform 0.7s ease-in-out;
   transition: transform 0.7s ease-in-out;
+  transition: transform 0.7s ease-in-out, -webkit-transform 0.7s ease-in-out;
   -webkit-transform-origin: 50% 50%;
   -ms-transform-origin: 50% 50%;
   transform-origin: 50% 50%;
@@ -112,17 +116,30 @@ input:disabled {
 }
 
 .nextClick {
+  -webkit-transition: -webkit-transform 0.7s ease-in-out;
+  transition: -webkit-transform 0.7s ease-in-out;
+  -o-transition: transform 0.7s ease-in-out;
   transition: transform 0.7s ease-in-out;
-  transform: translateX(calc(-1 * var(--checkedWidth)));
+  transition: transform 0.7s ease-in-out, -webkit-transform 0.7s ease-in-out;
+  -webkit-transform: translateX(calc(-1 * var(--checkedWidth)));
+      -ms-transform: translateX(calc(-1 * var(--checkedWidth)));
+          transform: translateX(calc(-1 * var(--checkedWidth)));
 }
 
 .prevClick {
+  -webkit-transition: -webkit-transform 0.7s ease-in-out;
+  transition: -webkit-transform 0.7s ease-in-out;
+  -o-transition: transform 0.7s ease-in-out;
   transition: transform 0.7s ease-in-out;
-  transform: translateX(var(--checkedWidth));
+  transition: transform 0.7s ease-in-out, -webkit-transform 0.7s ease-in-out;
+  -webkit-transform: translateX(var(--checkedWidth));
+      -ms-transform: translateX(var(--checkedWidth));
+          transform: translateX(var(--checkedWidth));
 }
 
 .hideClick {
-  transform: rotateX(180deg);
+  -webkit-transform: rotateX(180deg);
+          transform: rotateX(180deg);
 }
 
 .prevNumber {
