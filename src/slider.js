@@ -9,23 +9,21 @@ import svgOuterHTMLElement from './svg'
     }) {
         const checkedWidth = (window.innerWidth > 0) && window.innerWidth >= width ? width : window.innerWidth;
 
+        let root = document.documentElement;
+        root.style.setProperty('--checkedWidth', checkedWidth + "px");
+        root.style.setProperty('--height', height + "px");
+        
         const numberOfElements = slider.children.length;
         const slidesContainer = document.createElement('div')
         const controlContainer = document.createElement('div')
 
-
         controlContainer.className = 'controlContainer'
         slidesContainer.className = 'slidesContainer'
-        slidesContainer.style.width = checkedWidth + 'px'
-        slidesContainer.style.height = height + 'px'
-        controlContainer.style.width = checkedWidth + 'px'
-        controlContainer.style.height = height + 'px'
 
         controlContainer.append(...slider.children)
         slidesContainer.append(controlContainer)
         slider.append(slidesContainer)
         slider.className = 'slider'
-
 
         const childArray = [...controlContainer.children]
         childArray.forEach(item => {
@@ -99,15 +97,10 @@ import svgOuterHTMLElement from './svg'
         })
 
         controlContainer.addEventListener('transitionend', () => {
-            if (currentNumber % 2 === 0 && currentNumber !== 0) {
-                controlContainer.children[currentNumber - 2].style.left = 0
-                controlContainer.children[currentNumber - 2].style.display = 'none'
-            }
             controlContainer.children[nextNumber].style.left = `${checkedWidth}px`
             controlContainer.children[nextNumber].style.display = 'block'
             controlContainer.children[currentNumber].style.left = 0
             controlContainer.children[prevNumber].style.left = `${-checkedWidth}px`
-            controlContainer.children[prevNumber].style.display = 'block'
             controlContainer.style.transition = 'none'
             controlContainer.style.transform = 'none'
             buttonBlocked = false
@@ -172,7 +165,7 @@ import svgOuterHTMLElement from './svg'
             const buttonContainer = document.createElement('div')
             buttonContainer.className = 'buttonContainer'
             slider.append(buttonContainer)
-    
+
             const btnPlayPause = document.createElement('button')
             const btnPlayPauseSVG = document.createElement('div')
             btnPlayPause.append(btnPlayPauseSVG)
@@ -234,7 +227,7 @@ import svgOuterHTMLElement from './svg'
                 e.preventDefault()
                 if (statusPresentation) {
                     lefttoplay.beginElement();
-                    righttoplay.beginElement(); 
+                    righttoplay.beginElement();
                     statusPresentation = false
                     clearInterval(presentation)
                 } else {

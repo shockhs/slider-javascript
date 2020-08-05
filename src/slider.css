@@ -1,3 +1,22 @@
+:root {
+  --checkedWidth: 940px;
+  --height: 270px;
+}
+.controlContainer {
+  position: relative;
+  left: 0px;
+  width: var(--checkedWidth);
+  height: var(--height);
+}
+
+.slidesContainer {
+  overflow: hidden;
+  position: relative;
+  width: var(--checkedWidth);
+  height: var(--height);
+}
+
+
 .buttonContainer {
   outline: none;
   width: 100%;
@@ -14,7 +33,6 @@
   -ms-flex-pack: justify;
   justify-content: space-between;
 }
-
 
 .btnHideActionBar {
   cursor: pointer;
@@ -60,16 +78,6 @@
   z-index: 0;
   -webkit-backface-visibility: hidden;
   backface-visibility: hidden;
-}
-
-.controlContainer {
-  position: relative;
-  left: 0px;
-}
-
-.slidesContainer {
-  overflow: hidden;
-  position: relative;
 }
 
 .slider {
