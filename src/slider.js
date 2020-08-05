@@ -36,12 +36,9 @@ import svgOuterHTMLElement from './svg'
         let currentNumber = 0
         let buttonBlocked = false
 
-        controlContainer.children[prevNumber].style.display = 'block'
-        controlContainer.children[prevNumber].style.left = `${-checkedWidth}px`
-        controlContainer.children[currentNumber].style.display = 'block'
-        controlContainer.children[currentNumber].style.zIndex = 10
-        controlContainer.children[nextNumber].style.display = 'block'
-        controlContainer.children[nextNumber].style.left = `${checkedWidth}px`
+        controlContainer.children[prevNumber].className = 'imageDefault prevNumber'
+        controlContainer.children[currentNumber].className = 'imageDefault currentNumber'
+        controlContainer.children[nextNumber].className = 'imageDefault nextNumber'
 
 
         if (!hideControls && checkedWidth >= 724) {
@@ -49,6 +46,7 @@ import svgOuterHTMLElement from './svg'
         }
 
         const simulationNextClick = () => {
+            controlContainer.children[prevNumber].className = 'imageDefault'
             controlContainer.style.transition = 'transform 0.7s ease-in-out'
             controlContainer.style.transform = 'translateX(-' + checkedWidth + 'px)'
 
@@ -65,12 +63,13 @@ import svgOuterHTMLElement from './svg'
                 prevNumber = currentNumber - 1
                 nextNumber = currentNumber + 1
             }
-            controlContainer.children[prevNumber].style.zIndex = 0
-            controlContainer.children[currentNumber].style.zIndex = 10
-            controlContainer.children[nextNumber].style.zIndex = 0
+            controlContainer.children[prevNumber].classList.add('zIndexDefault')
+            controlContainer.children[currentNumber].classList.add('zIndexActive')
+            controlContainer.children[nextNumber].classList.add('zIndexDefault')
         }
 
         const simulationPrevClick = () => {
+            controlContainer.children[nextNumber].className = 'imageDefault'
             controlContainer.style.transition = 'transform 0.7s ease-in-out'
             controlContainer.style.transform = 'translateX(' + checkedWidth + 'px)'
 
@@ -87,9 +86,9 @@ import svgOuterHTMLElement from './svg'
                 prevNumber = currentNumber - 1
                 nextNumber = currentNumber + 1
             }
-            controlContainer.children[prevNumber].style.zIndex = 0
-            controlContainer.children[currentNumber].style.zIndex = 10
-            controlContainer.children[nextNumber].style.zIndex = 0
+            controlContainer.children[prevNumber].classList.add('zIndexDefault')
+            controlContainer.children[currentNumber].classList.add('zIndexActive')
+            controlContainer.children[nextNumber].classList.add('zIndexDefault')
         }
 
         controlContainer.addEventListener('transitionstart', () => {
@@ -97,18 +96,9 @@ import svgOuterHTMLElement from './svg'
         })
 
         controlContainer.addEventListener('transitionend', () => {
-            if (nextNumber+1 <= numberOfElements.length-1) {
-                controlContainer.children[nextNumber + 1].style.left = 0
-                controlContainer.children[nextNumber + 1].style.display = 'none'
-            }
-            if (prevNumber - 1 >= 0) {
-                controlContainer.children[prevNumber - 1].style.left = 0
-                controlContainer.children[prevNumber - 1].style.display = 'none'
-            }
-            controlContainer.children[nextNumber].style.left = `${checkedWidth}px`
-            controlContainer.children[nextNumber].style.display = 'block'
-            controlContainer.children[currentNumber].style.left = 0
-            controlContainer.children[prevNumber].style.left = `${-checkedWidth}px`
+            controlContainer.children[nextNumber].className = 'imageDefault nextNumber'
+            controlContainer.children[currentNumber].className = 'imageDefault currentNumber'
+            controlContainer.children[prevNumber].className = 'imageDefault prevNumber'
             controlContainer.style.transition = 'none'
             controlContainer.style.transform = 'none'
             buttonBlocked = false

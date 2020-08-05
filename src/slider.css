@@ -114,7 +114,7 @@ input:disabled {
 .prevNumber {
   display: block;
   z-index: 0;
-  left: - var(--checkedWidth);
+  left: calc(-1 * var(--checkedWidth));
 }
 
 .currentNumber {
@@ -127,4 +127,12 @@ input:disabled {
   display: block;
   z-index: 0;
   left: var(--checkedWidth);
+}
+
+.zIndexDefault {
+  z-index: 0;
+}
+
+.zIndexActive {
+  z-index: 10;
 }
