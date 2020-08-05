@@ -97,6 +97,14 @@ import svgOuterHTMLElement from './svg'
         })
 
         controlContainer.addEventListener('transitionend', () => {
+            if (nextNumber+1 <= numberOfElements.length-1) {
+                controlContainer.children[nextNumber + 1].style.left = 0
+                controlContainer.children[nextNumber + 1].style.display = 'none'
+            }
+            if (prevNumber - 1 >= 0) {
+                controlContainer.children[prevNumber - 1].style.left = 0
+                controlContainer.children[prevNumber - 1].style.display = 'none'
+            }
             controlContainer.children[nextNumber].style.left = `${checkedWidth}px`
             controlContainer.children[nextNumber].style.display = 'block'
             controlContainer.children[currentNumber].style.left = 0

@@ -16,7 +16,6 @@
   height: var(--height);
 }
 
-
 .buttonContainer {
   outline: none;
   width: 100%;
@@ -110,4 +109,22 @@ input:disabled {
 
 .opacityInvisible {
   opacity: 0;
+}
+
+.prevNumber {
+  display: block;
+  z-index: 0;
+  left: - var(--checkedWidth);
+}
+
+.currentNumber {
+  display: block;
+  z-index: 10;
+  left: 0;
+}
+
+.nextNumber {
+  display: block;
+  z-index: 0;
+  left: var(--checkedWidth);
 }
