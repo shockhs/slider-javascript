@@ -1,101 +1,72 @@
-.btnRightDefaultStyles {
-  outline: none;
-  border-width: 15px;
-  border-style: solid;
-  border-color: #000;
-  -webkit-transition: all 0.2s ease-in;
-  -o-transition: all 0.2s ease-in;
-  transition: all 0.2s ease-in;
+:root {
+  --checkedWidth: 940px;
+  --height: 270px;
+}
+.controlContainer {
+  position: relative;
+  left: 0px;
+  width: var(--checkedWidth);
+  height: var(--height);
 }
 
-.btnRightActiveStyles {
-  border-width: 15px 0px 15px 15px;
-  border-color: transparent transparent transparent #000;
-  -webkit-transform: scaleY(0.5);
-  -ms-transform: scaleY(0.5);
-  transform: scaleY(0.5);
-}
-.btnLeftDefaultStyles {
-  outline: none;
-  margin-right: 10px;
-  height: 100%;
-  border-width: 7.5px;
-  border-style: solid;
-  border-color: #000;
-  -webkit-transition: all 0.2s ease-in;
-  -o-transition: all 0.2s ease-in;
-  transition: all 0.2s ease-in;
+.slidesContainer {
   overflow: hidden;
+  position: relative;
+  width: var(--checkedWidth);
+  height: var(--height);
 }
-.btnLeftActiveStyles {
-  border-width: 7.5px 0px 7.5px 15px;
-  border-color: transparent transparent transparent #000;
-  margin: 0;
-}
-.buttonContainerStyles {
+
+.buttonContainer {
   outline: none;
-  width: 100%;
+  width: calc(var(--checkedWidth) - 100px);
   bottom: 0;
-  margin-top: 20px;
-  padding: 20px;
+  padding: 10px;
+  margin-top: 10px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
   -webkit-box-pack: justify;
   -ms-flex-pack: justify;
   justify-content: space-between;
 }
-.btnPlayPauseStyles {
-  outline: none;
-  height: 30px;
-  width: 40px;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  overflow: hidden;
-  cursor: pointer;
-  position: relative;
-  -webkit-transition: opacity 0.7s ease-in-out;
-  -o-transition: opacity 0.7s ease-in-out;
-  transition: opacity 0.7s ease-in-out;
-}
-.btnHideActionBarStyles {
+
+.btnHideActionBar {
   cursor: pointer;
   border: none;
-  background-color: transparent;
   outline: none;
-  border-style: solid;
-  border-width: 15px;
-  padding-left: 0;
-  padding-right: 0;
-  border-color: #000 transparent transparent transparent;
+  width: 100px;
+  height: 60px;
+  -webkit-transition: -webkit-transform 0.7s ease-in-out;
+  transition: -webkit-transform 0.7s ease-in-out;
+  -o-transition: transform 0.7s ease-in-out;
+  transition: transform 0.7s ease-in-out;
+  transition: transform 0.7s ease-in-out, -webkit-transform 0.7s ease-in-out;
   -webkit-transform-origin: 50% 50%;
   -ms-transform-origin: 50% 50%;
   transform-origin: 50% 50%;
 }
-.btnPrevStyles {
-  outline: none;
+.btnPrev {
   cursor: pointer;
   border: none;
   outline: none;
-  background-color: transparent;
-  border: 15px solid #000;
-  border-width: 15px 30px 15px 0px;
-  border-top-color: transparent;
-  border-bottom-color: transparent;
+  width: 100px;
+  height: 60px;
   -webkit-transition: opacity 0.7s ease-in-out;
   -o-transition: opacity 0.7s ease-in-out;
   transition: opacity 0.7s ease-in-out;
 }
-.btnNextStyles {
+.btnNext {
   cursor: pointer;
   border: none;
   outline: none;
-  background-color: transparent;
-  border: solid #000;
-  border-width: 15px 0px 15px 30px;
-  border-top-color: transparent;
-  border-bottom-color: transparent;
+  width: 100px;
+  height: 60px;
+  -webkit-transform: rotate(180deg);
+  -ms-transform: rotate(180deg);
+  transform: rotate(180deg);
   -webkit-transition: opacity 0.7s ease-in-out;
   -o-transition: opacity 0.7s ease-in-out;
   transition: opacity 0.7s ease-in-out;
@@ -109,17 +80,7 @@
   width: 100%;
   z-index: 0;
   -webkit-backface-visibility: hidden;
-          backface-visibility: hidden;
-}
-
-.controlContainer {
-  position: relative;
-  left: 0px;
-}
-
-.slidesContainer {
-  overflow: hidden;
-  position: relative;
+  backface-visibility: hidden;
 }
 
 .slider {
@@ -127,3 +88,82 @@
   display: block;
 }
 
+.slider button svg {
+  fill: #000;
+  height: 60px;
+  display: block;
+  margin: 0 auto;
+}
+
+.slider button {
+  border: none;
+  cursor: pointer;
+  outline: none;
+  padding: 0;
+  background-color: transparent;
+  -webkit-transition: opacity 0.7s ease-in-out;
+  -o-transition: opacity 0.7s ease-in-out;
+  transition: opacity 0.7s ease-in-out;
+}
+
+button:disabled,
+input:disabled {
+  cursor: default;
+}
+
+.opacityInvisible {
+  opacity: 0;
+}
+
+.nextClick {
+  -webkit-transition: -webkit-transform 0.7s ease-in-out;
+  transition: -webkit-transform 0.7s ease-in-out;
+  -o-transition: transform 0.7s ease-in-out;
+  transition: transform 0.7s ease-in-out;
+  transition: transform 0.7s ease-in-out, -webkit-transform 0.7s ease-in-out;
+  -webkit-transform: translateX(calc(-1 * var(--checkedWidth)));
+      -ms-transform: translateX(calc(-1 * var(--checkedWidth)));
+          transform: translateX(calc(-1 * var(--checkedWidth)));
+}
+
+.prevClick {
+  -webkit-transition: -webkit-transform 0.7s ease-in-out;
+  transition: -webkit-transform 0.7s ease-in-out;
+  -o-transition: transform 0.7s ease-in-out;
+  transition: transform 0.7s ease-in-out;
+  transition: transform 0.7s ease-in-out, -webkit-transform 0.7s ease-in-out;
+  -webkit-transform: translateX(var(--checkedWidth));
+      -ms-transform: translateX(var(--checkedWidth));
+          transform: translateX(var(--checkedWidth));
+}
+
+.hideClick {
+  -webkit-transform: rotateX(180deg);
+          transform: rotateX(180deg);
+}
+
+.prevNumber {
+  display: block;
+  z-index: 0;
+  left: calc(-1 * var(--checkedWidth));
+}
+
+.currentNumber {
+  display: block;
+  z-index: 10;
+  left: 0;
+}
+
+.nextNumber {
+  display: block;
+  z-index: 0;
+  left: var(--checkedWidth);
+}
+
+.zIndexDefault {
+  z-index: 0;
+}
+
+.zIndexActive {
+  z-index: 10;
+}
