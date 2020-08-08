@@ -33,12 +33,12 @@
   justify-content: space-between;
 }
 
+
 .btnHideActionBar {
-  cursor: pointer;
   border: none;
   outline: none;
-  width: 100px;
-  height: 60px;
+  padding: 0;
+  background-color: transparent;
   -webkit-transition: -webkit-transform 0.7s ease-in-out;
   transition: -webkit-transform 0.7s ease-in-out;
   -o-transition: transform 0.7s ease-in-out;
@@ -48,25 +48,46 @@
   -ms-transform-origin: 50% 50%;
   transform-origin: 50% 50%;
 }
+
+.btnHideActionBar svg {
+  height: 60px;
+}
+
 .btnPrev {
-  cursor: pointer;
   border: none;
   outline: none;
-  width: 100px;
-  height: 60px;
+  padding: 0;
+  background-color: transparent;
   -webkit-transition: opacity 0.7s ease-in-out;
   -o-transition: opacity 0.7s ease-in-out;
   transition: opacity 0.7s ease-in-out;
 }
+
+.btnPrev svg {
+  fill:#000;
+  -webkit-transition: opacity 0.7s ease-in-out;
+  -o-transition: opacity 0.7s ease-in-out;
+  transition: opacity 0.7s ease-in-out;
+  height: 60px;
+}
+
 .btnNext {
-  cursor: pointer;
   border: none;
   outline: none;
-  width: 100px;
-  height: 60px;
+  padding: 0;
+  background-color: transparent;
   -webkit-transform: rotate(180deg);
   -ms-transform: rotate(180deg);
   transform: rotate(180deg);
+  -webkit-transition: opacity 0.7s ease-in-out;
+  -o-transition: opacity 0.7s ease-in-out;
+  transition: opacity 0.7s ease-in-out;
+}
+
+.btnNext svg {
+  fill:#000;
+  width: 100px;
+  height: 60px;
   -webkit-transition: opacity 0.7s ease-in-out;
   -o-transition: opacity 0.7s ease-in-out;
   transition: opacity 0.7s ease-in-out;
@@ -88,16 +109,18 @@
   display: block;
 }
 
-.slider button svg {
+.slider .playPauseBtn svg {
   fill: #000;
   height: 60px;
+  -webkit-transition: opacity 0.7s ease-in-out;
+  -o-transition: opacity 0.7s ease-in-out;
+  transition: opacity 0.7s ease-in-out;
   display: block;
   margin: 0 auto;
 }
 
-.slider button {
+.slider .playPauseBtn {
   border: none;
-  cursor: pointer;
   outline: none;
   padding: 0;
   background-color: transparent;
@@ -106,12 +129,16 @@
   transition: opacity 0.7s ease-in-out;
 }
 
-button:disabled,
-input:disabled {
+button {
+  cursor: pointer;
+}
+
+button:disabled {
   cursor: default;
 }
 
-.opacityInvisible {
+.opacityInvisible,
+.opacityInvisible svg {
   opacity: 0;
 }
 
@@ -122,8 +149,8 @@ input:disabled {
   transition: transform 0.7s ease-in-out;
   transition: transform 0.7s ease-in-out, -webkit-transform 0.7s ease-in-out;
   -webkit-transform: translateX(calc(-1 * var(--checkedWidth)));
-      -ms-transform: translateX(calc(-1 * var(--checkedWidth)));
-          transform: translateX(calc(-1 * var(--checkedWidth)));
+  -ms-transform: translateX(calc(-1 * var(--checkedWidth)));
+  transform: translateX(calc(-1 * var(--checkedWidth)));
 }
 
 .prevClick {
@@ -133,13 +160,13 @@ input:disabled {
   transition: transform 0.7s ease-in-out;
   transition: transform 0.7s ease-in-out, -webkit-transform 0.7s ease-in-out;
   -webkit-transform: translateX(var(--checkedWidth));
-      -ms-transform: translateX(var(--checkedWidth));
-          transform: translateX(var(--checkedWidth));
+  -ms-transform: translateX(var(--checkedWidth));
+  transform: translateX(var(--checkedWidth));
 }
 
 .hideClick {
   -webkit-transform: rotateX(180deg);
-          transform: rotateX(180deg);
+  transform: rotateX(180deg);
 }
 
 .prevNumber {
