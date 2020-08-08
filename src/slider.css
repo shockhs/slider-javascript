@@ -98,10 +98,14 @@
   position: absolute;
   top: 0px;
   left: 0px;
-  width: 100%;
+  width: var(--checkedWidth);
   z-index: 0;
   -webkit-backface-visibility: hidden;
   backface-visibility: hidden;
+}
+
+img {
+  width: 100%;
 }
 
 .slider {

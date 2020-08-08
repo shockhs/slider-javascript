@@ -14,7 +14,7 @@ const down = require('./assets/icons/down.svg');
         let root = document.documentElement;
         root.style.setProperty('--checkedWidth', checkedWidth + "px");
         root.style.setProperty('--height', height + "px");
-        
+
         const slider = document.getElementById(sliderName)
 
         const numberOfElements = slider.children.length;
@@ -140,19 +140,23 @@ const down = require('./assets/icons/down.svg');
 
         slidesContainer.addEventListener('mousedown', (event) => {
             event.preventDefault()
-            clearInterval(presentation)
-            startPosition = event.clientX
+            if (!buttonBlocked) {
+                clearInterval(presentation)
+                startPosition = event.clientX
+            }
         }, false)
 
 
         slidesContainer.addEventListener('mouseup', (event) => {
             event.preventDefault()
-            if (event.clientX - startPosition > 0) {
-                simulationPrevClick()
-                if (statusPresentation) resetInterval()
-            } else {
-                simulationNextClick()
-                if (statusPresentation) resetInterval()
+            if (!buttonBlocked) {
+                if (event.clientX - startPosition > 0) {
+                    simulationPrevClick()
+                    if (statusPresentation) resetInterval()
+                } else if (event.clientX - startPosition < 0) {
+                    simulationNextClick()
+                    if (statusPresentation) resetInterval()
+                }
             }
         }, false)
 
