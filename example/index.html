@@ -17,7 +17,7 @@
 </head>
 
 <body>
-    <div id="slider-2" class="slider">
+    <div id="slider" class="slider">
         <div>
             <img src="https://slidesjs.com/img/example-slide-350-1.jpg" alt="Slider #1" />
         </div>
@@ -31,11 +31,10 @@
             <img src="https://slidesjs.com/img/example-slide-350-4.jpg" alt="Slider #4" />
         </div>
     </div>
-    <script src="../dist/main.52d3f39e.js"></script>
+    <script src="../dist/main.js"></script>
     <script>
         document.addEventListener("DOMContentLoaded", function (event) {
-            var slider2 = document.getElementById('slider-2')
-            var slider = new sliderJS(slider2, {
+            var slider = new sliderJS('slider', {
                 size: 940,
                 timeout: 2000
             })

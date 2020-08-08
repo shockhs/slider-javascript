@@ -2,25 +2,23 @@ const path = require('path')
 const { CleanWebpackPlugin } = require('clean-webpack-plugin')
 const TerserPlugin = require('terser-webpack-plugin')
 
-
-const isDevelopment = process.env.NODE_ENV === 'development'
-
-const filename = ext => isDevelopment ? `[name].${ext}` : `[name].[contenthash:8].${ext}`
-
 module.exports = {
     context: path.resolve(__dirname, 'src'),
-    entry: ['@babel/polyfill', './slider.js'],
+    entry: './slider.js',
     output: {
-        filename: filename('js'),
+        filename: '[name].js',
         path: path.resolve(__dirname, 'dist'),
     },
     resolve: {
         modules: [path.resolve(__dirname, 'src'), 'node_modules'],
         extensions: ['.wasm', '.mjs', '.js', '.jsx', '.ts', '.tsx', '.json']
     },
-    devtool: isDevelopment ? 'source-map' : '',
     module: {
         rules: [
+            {
+                test: /\.svg$/,
+                loader: 'svg-inline-loader'
+            },
             {
                 test: /\.js$/,
                 exclude: /node-modules/,

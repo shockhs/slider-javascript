@@ -1,7 +1,9 @@
-import svgOuterHTMLElement from './svg'
+import svgOuterHTMLElement from './svg';
+const arrow = require('./assets/icons/arrow.svg');
+const down = require('./assets/icons/down.svg');
 
 (function () {
-    const sliderJS = function (slider, {
+    const sliderJS = function (sliderName, {
         width = 940,
         height = 270,
         timeout = 3000,
@@ -13,6 +15,8 @@ import svgOuterHTMLElement from './svg'
         root.style.setProperty('--checkedWidth', checkedWidth + "px");
         root.style.setProperty('--height', height + "px");
         
+        const slider = document.getElementById(sliderName)
+
         const numberOfElements = slider.children.length;
         const slidesContainer = document.createElement('div')
         const controlContainer = document.createElement('div')
@@ -152,6 +156,13 @@ import svgOuterHTMLElement from './svg'
             }
         }, false)
 
+        window.addEventListener('focus', function () {
+            resetInterval()
+        });
+
+        window.addEventListener('blur', function () {
+            clearInterval(presentation)
+        });
 
         function addControls() {
             let statusButtonsVisibility = true
@@ -164,42 +175,46 @@ import svgOuterHTMLElement from './svg'
             const btnPlayPauseSVG = document.createElement('div')
             btnPlayPause.append(btnPlayPauseSVG)
             btnPlayPauseSVG.outerHTML = svgOuterHTMLElement
+            btnPlayPause.className = 'playPauseBtn'
             const lefttoplay = btnPlayPause.getElementsByClassName('lefttoplay')[0]
             const righttoplay = btnPlayPause.getElementsByClassName('righttoplay')[0]
             const lefttopause = btnPlayPause.getElementsByClassName('lefttopause')[0]
             const righttopause = btnPlayPause.getElementsByClassName('righttopause')[0]
 
 
-            const btnPrev = document.createElement('input')
-            const btnNext = document.createElement('input')
-            const btnHideActionBar = document.createElement('input')
+            const btnPrev = document.createElement('button')
+            const btnPrevSVG = document.createElement('div')
+            btnPrev.append(btnPrevSVG)
+            const btnNext = document.createElement('button')
+            const btnNextSVG = document.createElement('div')
+            btnNext.append(btnNextSVG)
+            const btnHideActionBar = document.createElement('button')
+            const btnHideActionBarSVG = document.createElement('div')
+            btnHideActionBar.append(btnHideActionBarSVG)
             btnPrev.className = 'btnPrev'
             btnNext.className = 'btnNext'
             btnHideActionBar.className = 'btnHideActionBar'
-            btnPrev.type = 'image'
-            btnPrev.src = './assets/images/arrow.svg'
-            btnNext.type = 'image'
-            btnNext.src = './assets/images/arrow.svg'
-            btnHideActionBar.type = 'image'
-            btnHideActionBar.src = './assets/images/down.svg'
+            btnPrevSVG.outerHTML = arrow
+            btnNextSVG.outerHTML = arrow
+            btnHideActionBarSVG.outerHTML = down
             buttonContainer.append(btnPrev, btnPlayPause, btnNext, btnHideActionBar)
 
             const hideButtons = () => {
                 btnNext.classList.toggle('opacityInvisible')
                 btnPrev.classList.toggle('opacityInvisible')
                 btnPlayPause.classList.toggle('opacityInvisible')
+                btnPlayPause.disabled = true
                 btnNext.disabled = true
                 btnPrev.disabled = true
-                btnPlayPause.disabled = true
             }
 
             const openButtons = () => {
                 btnNext.classList.toggle('opacityInvisible')
                 btnPrev.classList.toggle('opacityInvisible')
                 btnPlayPause.classList.toggle('opacityInvisible')
+                btnPlayPause.disabled = false
                 btnNext.disabled = false
                 btnPrev.disabled = false
-                btnPlayPause.disabled = false
             }
 
 
