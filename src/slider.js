@@ -156,6 +156,13 @@ const down = require('./assets/icons/down.svg');
             }
         }, false)
 
+        window.addEventListener('focus', function () {
+            resetInterval()
+        });
+
+        window.addEventListener('blur', function () {
+            clearInterval(presentation)
+        });
 
         function addControls() {
             let statusButtonsVisibility = true
