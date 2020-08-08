@@ -1,6 +1,6 @@
-import svgOuterHTMLElement from './svg';
-const arrow = require('./assets/icons/arrow.svg');
-const down = require('./assets/icons/down.svg');
+import svgOuterHTMLElement from './svg'
+import arrow from './assets/icons/arrow.svg'
+import down from './assets/icons/down.svg'
 
 (function () {
     const sliderJS = function (sliderName, {
