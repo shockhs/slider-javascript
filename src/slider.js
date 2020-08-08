@@ -17,18 +17,30 @@ import down from './assets/icons/down.svg'
 
         const slider = document.getElementById(sliderName)
 
-        const numberOfElements = slider.children.length;
+        const defaultNumberOfElements = slider.children.length;
+        let numberOfElements = defaultNumberOfElements
+
+        if (numberOfElements <= 1) return;
+
         const slidesContainer = document.createElement('div')
         const controlContainer = document.createElement('div')
 
         controlContainer.className = 'controlContainer'
         slidesContainer.className = 'slidesContainer'
 
-        controlContainer.append(...slider.children)
+        if (numberOfElements === 2) {
+            const addEl = [...slider.children][0].cloneNode(true)
+            const addEl2 = [...slider.children][1].cloneNode(true)
+            const arr = [...slider.children, addEl, addEl2]
+            controlContainer.append(...arr)
+            numberOfElements += 2
+        } else {
+            controlContainer.append(...slider.children)
+        }
+
         slidesContainer.append(controlContainer)
         slider.append(slidesContainer)
         slider.className = 'slider'
-
         const childArray = [...controlContainer.children]
         childArray.forEach(item => {
             item.className = 'imageDefault'
@@ -39,6 +51,7 @@ import down from './assets/icons/down.svg'
         let prevNumber = numberOfElements - 1
         let currentNumber = 0
         let buttonBlocked = false
+
 
         controlContainer.children[prevNumber].className = 'imageDefault prevNumber'
         controlContainer.children[currentNumber].className = 'imageDefault currentNumber'
@@ -52,7 +65,6 @@ import down from './assets/icons/down.svg'
         const simulationNextClick = () => {
             controlContainer.children[prevNumber].className = 'imageDefault'
             controlContainer.classList.add('nextClick')
-
             if (nextNumber === numberOfElements - 1) {
                 currentNumber = nextNumber
                 prevNumber = nextNumber - 1
