@@ -20,15 +20,21 @@ import down from './assets/icons/down.svg'
         const defaultNumberOfElements = slider.children.length;
         let numberOfElements = defaultNumberOfElements
 
-        if (numberOfElements <= 1) return;
-
+        if (numberOfElements === 0) return;
+        
         const slidesContainer = document.createElement('div')
         const controlContainer = document.createElement('div')
 
         controlContainer.className = 'controlContainer'
         slidesContainer.className = 'slidesContainer'
 
-        if (numberOfElements === 2) {
+        if (numberOfElements === 1) {
+            const addEl = [...slider.children][0].cloneNode(true)
+            const addEl2 = [...slider.children][0].cloneNode(true)
+            const arr = [...slider.children, addEl, addEl2]
+            controlContainer.append(...arr)
+            numberOfElements += 2
+        } else if (numberOfElements === 2) {
             const addEl = [...slider.children][0].cloneNode(true)
             const addEl2 = [...slider.children][1].cloneNode(true)
             const arr = [...slider.children, addEl, addEl2]

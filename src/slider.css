@@ -104,6 +104,11 @@
   backface-visibility: hidden;
 }
 
+.singleImage {
+  width: var(--checkedWidth);
+  height: var(--height);
+}
+
 img {
   width: 100%;
 }
