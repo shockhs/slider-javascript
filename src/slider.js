@@ -1,4 +1,4 @@
-import svgOuterHTMLElement from './svg'
+import svgOuterHTMLElement from './assets/icons/svg'
 import arrow from './assets/icons/arrow.svg'
 import down from './assets/icons/down.svg'
 
