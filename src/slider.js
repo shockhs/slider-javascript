@@ -1,6 +1,7 @@
 import svgOuterHTMLElement from './assets/icons/svg'
 import arrow from './assets/icons/arrow.svg'
 import down from './assets/icons/down.svg'
+import styles from './assets/styles/slider.css'
 
 (function () {
     const sliderJS = function (sliderName, {
@@ -21,12 +22,12 @@ import down from './assets/icons/down.svg'
         let numberOfElements = defaultNumberOfElements
 
         if (numberOfElements === 0) return;
-        
+
         const slidesContainer = document.createElement('div')
         const controlContainer = document.createElement('div')
 
-        controlContainer.className = 'controlContainer'
-        slidesContainer.className = 'slidesContainer'
+        controlContainer.className = styles.controlContainer
+        slidesContainer.className = styles.slidesContainer
 
         if (numberOfElements === 1) {
             const addEl = [...slider.children][0].cloneNode(true)
@@ -46,10 +47,10 @@ import down from './assets/icons/down.svg'
 
         slidesContainer.append(controlContainer)
         slider.append(slidesContainer)
-        slider.className = 'slider'
+        slider.className = styles.slider
         const childArray = [...controlContainer.children]
         childArray.forEach(item => {
-            item.className = 'imageDefault'
+            item.className = styles.imageDefault
         })
 
         let statusPresentation = true
@@ -57,11 +58,11 @@ import down from './assets/icons/down.svg'
         let prevNumber = numberOfElements - 1
         let currentNumber = 0
         let buttonBlocked = false
+        let startPosition
 
-
-        controlContainer.children[prevNumber].className = 'imageDefault prevNumber'
-        controlContainer.children[currentNumber].className = 'imageDefault currentNumber'
-        controlContainer.children[nextNumber].className = 'imageDefault nextNumber'
+        controlContainer.children[prevNumber].className = `${styles.imageDefault} ${styles.prevNumber}`
+        controlContainer.children[currentNumber].className = `${styles.imageDefault} ${styles.currentNumber}`
+        controlContainer.children[nextNumber].className = `${styles.imageDefault} ${styles.nextNumber}`
 
 
         if (!hideControls && checkedWidth >= 724) {
@@ -69,46 +70,37 @@ import down from './assets/icons/down.svg'
         }
 
         const simulationNextClick = () => {
-            controlContainer.children[prevNumber].className = 'imageDefault'
-            controlContainer.classList.add('nextClick')
+            controlContainer.children[prevNumber].className = styles.imageDefault
+            controlContainer.classList.add(styles.nextClick)
+
             if (nextNumber === numberOfElements - 1) {
-                currentNumber = nextNumber
-                prevNumber = nextNumber - 1
-                nextNumber = 0
+                preLastPositionOfElementNextClick()
             } else if (currentNumber === numberOfElements - 1) {
-                prevNumber = currentNumber
-                currentNumber = 0
-                nextNumber = currentNumber + 1
+                lastPositionOfElementNextClick()
             } else {
-                currentNumber++
-                prevNumber = currentNumber - 1
-                nextNumber = currentNumber + 1
+                middlePositionOfElementNextClick()
             }
-            controlContainer.children[prevNumber].classList.add('zIndexDefault')
-            controlContainer.children[currentNumber].classList.add('zIndexActive')
-            controlContainer.children[nextNumber].classList.add('zIndexDefault')
+
+            controlContainer.children[prevNumber].classList.add(styles.zIndexDefault)
+            controlContainer.children[currentNumber].classList.add(styles.zIndexActive)
+            controlContainer.children[nextNumber].classList.add(styles.zIndexDefault)
         }
 
         const simulationPrevClick = () => {
-            controlContainer.children[nextNumber].className = 'imageDefault'
-            controlContainer.classList.add('prevClick')
+            controlContainer.children[nextNumber].className = styles.imageDefault
+            controlContainer.classList.add(styles.prevClick)
 
             if (prevNumber === numberOfElements - 1) {
-                currentNumber = prevNumber
-                prevNumber = currentNumber - 1
-                nextNumber = 0
+                lastPositionOfElementPrevClick()
             } else if (currentNumber === 1) {
-                currentNumber = 0
-                prevNumber = numberOfElements - 1
-                nextNumber = currentNumber + 1
+                firstPositionOfElementPrevClick()
             } else {
-                currentNumber--
-                prevNumber = currentNumber - 1
-                nextNumber = currentNumber + 1
+                middlePositionOfElementPrevClick()
             }
-            controlContainer.children[prevNumber].classList.add('zIndexDefault')
-            controlContainer.children[currentNumber].classList.add('zIndexActive')
-            controlContainer.children[nextNumber].classList.add('zIndexDefault')
+
+            controlContainer.children[prevNumber].classList.add(styles.zIndexDefault)
+            controlContainer.children[currentNumber].classList.add(styles.zIndexActive)
+            controlContainer.children[nextNumber].classList.add(styles.zIndexDefault)
         }
 
         controlContainer.addEventListener('transitionstart', () => {
@@ -116,28 +108,63 @@ import down from './assets/icons/down.svg'
         })
 
         controlContainer.addEventListener('transitionend', () => {
-            controlContainer.children[nextNumber].className = 'imageDefault nextNumber'
-            controlContainer.children[currentNumber].className = 'imageDefault currentNumber'
-            controlContainer.children[prevNumber].className = 'imageDefault prevNumber'
-            controlContainer.className = 'controlContainer'
+            controlContainer.children[nextNumber].className = `${styles.imageDefault} ${styles.nextNumber}`
+            controlContainer.children[currentNumber].className = `${styles.imageDefault} ${styles.currentNumber}`
+            controlContainer.children[prevNumber].className = `${styles.imageDefault} ${styles.prevNumber}`
+            controlContainer.className = styles.controlContainer
             buttonBlocked = false
         })
 
-        // режим презентации
+        // Calculating nextView PREV CLICK
+
+        const lastPositionOfElementPrevClick = () => {
+            currentNumber = prevNumber
+            prevNumber = currentNumber - 1
+            nextNumber = 0
+        }
+
+        const firstPositionOfElementPrevClick = () => {
+            currentNumber = 0
+            prevNumber = numberOfElements - 1
+            nextNumber = currentNumber + 1
+        }
+
+        const middlePositionOfElementPrevClick = () => {
+            currentNumber--
+            prevNumber = currentNumber - 1
+            nextNumber = currentNumber + 1
+        }
+
+        // Calculating nextView NEXT CLICK
+
+        const lastPositionOfElementNextClick = () => {
+            prevNumber = currentNumber
+            currentNumber = 0
+            nextNumber = currentNumber + 1
+        }
+
+        const preLastPositionOfElementNextClick = () => {
+            currentNumber = nextNumber
+            prevNumber = nextNumber - 1
+            nextNumber = 0
+        }
+
+        const middlePositionOfElementNextClick = () => {
+            currentNumber++
+            prevNumber = currentNumber - 1
+            nextNumber = currentNumber + 1
+        }
+
         let presentation = setInterval(() => {
             simulationNextClick()
         }, timeout)
 
-        // сброс интервала при манипуляциях
         const resetInterval = () => {
             if (presentation) clearInterval(presentation)
             presentation = setInterval(() => {
                 simulationNextClick()
             }, timeout)
         }
-
-        let startPosition
-
 
         slidesContainer.addEventListener('touchstart', (event) => {
             event.preventDefault()
@@ -190,14 +217,14 @@ import down from './assets/icons/down.svg'
             let statusButtonsVisibility = true
 
             const buttonContainer = document.createElement('div')
-            buttonContainer.className = 'buttonContainer'
+            buttonContainer.className = styles.buttonContainer
             slider.append(buttonContainer)
 
             const btnPlayPause = document.createElement('button')
             const btnPlayPauseSVG = document.createElement('div')
             btnPlayPause.append(btnPlayPauseSVG)
             btnPlayPauseSVG.outerHTML = svgOuterHTMLElement
-            btnPlayPause.className = 'playPauseBtn'
+            btnPlayPause.className = styles.playPauseBtn
             const lefttoplay = btnPlayPause.getElementsByClassName('lefttoplay')[0]
             const righttoplay = btnPlayPause.getElementsByClassName('righttoplay')[0]
             const lefttopause = btnPlayPause.getElementsByClassName('lefttopause')[0]
@@ -205,35 +232,29 @@ import down from './assets/icons/down.svg'
 
 
             const btnPrev = document.createElement('button')
-            const btnPrevSVG = document.createElement('div')
-            btnPrev.append(btnPrevSVG)
             const btnNext = document.createElement('button')
-            const btnNextSVG = document.createElement('div')
-            btnNext.append(btnNextSVG)
             const btnHideActionBar = document.createElement('button')
-            const btnHideActionBarSVG = document.createElement('div')
-            btnHideActionBar.append(btnHideActionBarSVG)
-            btnPrev.className = 'btnPrev'
-            btnNext.className = 'btnNext'
-            btnHideActionBar.className = 'btnHideActionBar'
-            btnPrevSVG.outerHTML = arrow
-            btnNextSVG.outerHTML = arrow
-            btnHideActionBarSVG.outerHTML = down
+            btnPrev.className = styles.btnPrev
+            btnNext.className = styles.btnNext
+            btnHideActionBar.className = styles.btnHideActionBar
+            btnPrev.innerHTML = arrow
+            btnNext.innerHTML = arrow
+            btnHideActionBar.innerHTML = down
             buttonContainer.append(btnPrev, btnPlayPause, btnNext, btnHideActionBar)
 
             const hideButtons = () => {
-                btnNext.classList.toggle('opacityInvisible')
-                btnPrev.classList.toggle('opacityInvisible')
-                btnPlayPause.classList.toggle('opacityInvisible')
+                btnNext.classList.toggle(styles.opacityInvisible)
+                btnPrev.classList.toggle(styles.opacityInvisible)
+                btnPlayPause.classList.toggle(styles.opacityInvisible)
                 btnPlayPause.disabled = true
                 btnNext.disabled = true
                 btnPrev.disabled = true
             }
 
             const openButtons = () => {
-                btnNext.classList.toggle('opacityInvisible')
-                btnPrev.classList.toggle('opacityInvisible')
-                btnPlayPause.classList.toggle('opacityInvisible')
+                btnNext.classList.toggle(styles.opacityInvisible)
+                btnPrev.classList.toggle(styles.opacityInvisible)
+                btnPlayPause.classList.toggle(styles.opacityInvisible)
                 btnPlayPause.disabled = false
                 btnNext.disabled = false
                 btnPrev.disabled = false
@@ -242,11 +263,11 @@ import down from './assets/icons/down.svg'
 
             btnHideActionBar.addEventListener('click', () => {
                 if (statusButtonsVisibility) {
-                    btnHideActionBar.classList.toggle('hideClick')
+                    btnHideActionBar.classList.toggle(styles.hideClick)
                     hideButtons()
                     statusButtonsVisibility = false
                 } else {
-                    btnHideActionBar.classList.toggle('hideClick')
+                    btnHideActionBar.classList.toggle(styles.hideClick)
                     openButtons()
                     statusButtonsVisibility = true
                 }
