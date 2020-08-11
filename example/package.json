@@ -1,13 +1,14 @@
 {
-  "name": "vmslider-js",
+  "name": "example",
   "version": "1.0.0",
-  "main": "dist/main.js",
-  "license": "MIT",
-  "author": "Vagan Mkrtchyan <perfoma777@mail.ru>",
+  "description": "",
+  "main": "index.js",
   "scripts": {
     "dev": "cross-env NODE_ENV=development webpack --mode development",
     "build": "cross-env NODE_ENV=production webpack --mode production"
   },
+  "author": "",
+  "license": "ISC",
   "devDependencies": {
     "@babel/core": "^7.10.5",
     "@babel/preset-env": "^7.10.4",
@@ -23,6 +24,7 @@
     "webpack-cli": "^3.3.12"
   },
   "dependencies": {
-    "vmslider": "^1.0.0"
+    "vmslider-esaxco": "^1.0.0",
+    "vmslider-js": "^1.0.0"
   }
 }
