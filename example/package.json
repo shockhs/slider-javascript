@@ -24,7 +24,6 @@
     "webpack-cli": "^3.3.12"
   },
   "dependencies": {
-    "vmslider-esaxco": "^1.0.0",
-    "vmslider-js": "^1.0.0"
+    "vmslider-js": "^1.2.0"
   }
 }
