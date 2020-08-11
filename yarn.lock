@@ -4524,6 +4524,14 @@ vmslider-js@^1.4.0:
   dependencies:
     vmslider "^1.0.0"
 
+vmslider-js@^1.5.0:
+  version "1.5.0"
+  resolved "https://registry.yarnpkg.com/vmslider-js/-/vmslider-js-1.5.0.tgz#a911b27f2d0f86f5878fe0765f3936a301a2be31"
+  integrity sha512-RFFRhec+UIULsU+ntoAI1n338ANnktEwVF+V+I1YQQzifjz6V4KHc/OZ9uL/Igwwhdyg4E9MMFl9nm1omYWbSA==
+  dependencies:
+    vmslider "^1.0.0"
+    vmslider-js "^1.4.0"
+
 vmslider@^1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/vmslider/-/vmslider-1.0.0.tgz#83f6bcbddef1e26a90f19950eb6d77358518a00f"
