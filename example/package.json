@@ -2,7 +2,7 @@
   "name": "example",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "src/index.js",
   "scripts": {
     "dev": "cross-env NODE_ENV=development webpack --mode development",
     "build": "cross-env NODE_ENV=production webpack --mode production"
@@ -24,6 +24,6 @@
     "webpack-cli": "^3.3.12"
   },
   "dependencies": {
-    "vmslider-js": "^1.5.0"
+    "vmslider-js": "^1.6.0"
   }
 }

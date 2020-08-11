@@ -1,4 +1,4 @@
-import sliderJS from 'vmslider-js'
+import { sliderJS } from 'vmslider-js'
 
 
 sliderJS('slider', {
