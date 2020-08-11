@@ -23,6 +23,7 @@
     "webpack-cli": "^3.3.12"
   },
   "dependencies": {
-    "vmslider": "^1.0.0"
+    "vmslider": "^1.0.0",
+    "vmslider-js": "^1.4.0"
   }
 }
