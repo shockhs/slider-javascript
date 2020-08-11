@@ -1,7 +1,7 @@
-import { vmslider } from 'vmslider-js'
+import sliderJS from 'vmslider-js'
 
 
-vmslider('slider', {
+sliderJS('slider', {
     width: 940,
     timeout: 2000
 })
