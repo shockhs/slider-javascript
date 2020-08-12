@@ -1,6 +1,6 @@
 {
-  "name": "vmsliderjs",
-  "version": "2.4.0",
+  "name": "slider-vm",
+  "version": "1.0.0",
   "main": "dist/main.js",
   "license": "MIT",
   "author": "Vagan Mkrtchyan <perfoma777@mail.ru>",

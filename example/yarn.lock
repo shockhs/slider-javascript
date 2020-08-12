@@ -4424,6 +4424,11 @@ signal-exit@^3.0.0:
   resolved "https://registry.yarnpkg.com/signal-exit/-/signal-exit-3.0.3.tgz#a1410c2edd8f077b08b4e253c8eacfcaf057461c"
   integrity sha512-VUJ49FC8U1OxwZLxIbTTrDvLnf/6TDgxZcK8wxR8zs13xpx7xbG60ndBlhNrFi2EMuFRoeDoJO7wthSLq42EjA==
 
+slider-vm@^1.0.0:
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/slider-vm/-/slider-vm-1.0.0.tgz#3d425bc4a37ae52630cd1261e9872331c1e12a61"
+  integrity sha512-1nRyr07N0GJuPQtnXK2BhGmlg4i4DRwG7ZFquA/pmgkxsioc//btzOcbmwQtt6lLlURgtsfy7jEhbA7YWa+VCA==
+
 snapdragon-node@^2.0.1:
   version "2.1.1"
   resolved "https://registry.yarnpkg.com/snapdragon-node/-/snapdragon-node-2.1.1.tgz#6c175f86ff14bdb0724563e8f3c1b021a286853b"
@@ -4974,11 +4979,6 @@ vm-browserify@^1.0.1:
   version "1.1.2"
   resolved "https://registry.yarnpkg.com/vm-browserify/-/vm-browserify-1.1.2.tgz#78641c488b8e6ca91a75f511e7a3b32a86e5dda0"
   integrity sha512-2ham8XPWTONajOR0ohOKOHXkm3+gaBmGut3SRuu75xLd/RRaY6vqgh8NBYYk7+RW3u5AtzPQZG8F10LHkl0lAQ==
-
-vmsliderjs@^2.3.0:
-  version "2.3.0"
-  resolved "https://registry.yarnpkg.com/vmsliderjs/-/vmsliderjs-2.3.0.tgz#9334fa36e3fd1a8f3de489cb7d66c0227c94b7ea"
-  integrity sha512-rye43MKbqiaURAYdxBvVLccO6QCrrjCg/Cye8ThZcw9L2YMMwhVMxeLcMQyqAAWY8K1tEGHlxoeQuGY4WF4jfg==
 
 watchpack-chokidar2@^2.0.0:
   version "2.0.0"
