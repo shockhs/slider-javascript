@@ -302,6 +302,7 @@ import styles from './assets/styles/slider.css'
     }
     if (typeof module !== 'undefined' && typeof module.exports !== 'undefined') {
         module.exports.sliderJS = sliderJS
+        console.log(module.exports)
     } else {
         window.sliderJS = sliderJS;
     }
