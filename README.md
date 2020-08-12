@@ -16,17 +16,14 @@ Install the package
 npm install vm-slider-js
 ```
 
-###### npm 
+###### yarn 
 
 ```
 yarn add vm-slider-js
 ```
 
-
-```
-
 <b>HTML</b>
-
+```
 <!DOCTYPE html>
 <html lang="en">
 
@@ -61,10 +58,11 @@ yarn add vm-slider-js
 </body>
 
 </html>
-
+```
 
 <b>NPM</b>
 
+```
 import { sliderJS } from 'vm-slider-js'
 
 sliderJS.createSlider('slider', {
