@@ -15,6 +15,8 @@ const createSlider = (sliderName, { width = 940, height = 270, timeout = 3000, h
 
     if (!slider) return;
 
+    slider.className = 'slider'
+
     const defaultNumberOfElements = slider.children.length;
     let numberOfElements = defaultNumberOfElements
 

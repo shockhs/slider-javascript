@@ -10,7 +10,7 @@ Then...
 
 ```
 
-<div id="slider" class="slider"> 
+<div id="slider"> 
     <img src="#" alt="Slider #1" />
     <img src="#" alt="Slider #2" />
     <img src="#" alt="Slider #3" />
