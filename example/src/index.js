@@ -1,4 +1,4 @@
-import sliderJS from 'vmslider-js'
+const sliderJS = require('vmslider-js')
 
 
 sliderJS('slider', {
