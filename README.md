@@ -17,6 +17,14 @@ sliderJS.createSlider('slider', {
     ...other options
 })
 
+
+<div id="slider" class="slider"> 
+    <img src="https://slidesjs.com/img/example-slide-350-1.jpg" alt="Slider #1" />
+    <img src="https://slidesjs.com/img/example-slide-350-2.jpg" alt="Slider #2" />
+    <img src="https://slidesjs.com/img/example-slide-350-3.jpg" alt="Slider #3" />
+    <img src="https://slidesjs.com/img/example-slide-350-4.jpg" alt="Slider #4" />
+</div>
+
 ```
 
 # Options
