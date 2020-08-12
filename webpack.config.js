@@ -4,12 +4,13 @@ const { CleanWebpackPlugin } = require('clean-webpack-plugin')
 module.exports = {
     context: path.resolve(__dirname, 'src'),
     entry: 'slider.js',
+    target: 'web',
     devtool: 'inline-source-map',
     output: {
         filename: 'vm-slider-js.js',
         path: path.resolve(__dirname, 'dist'),
-        library: 'vmSliderJs',
-        libraryTarget: 'var'
+        library: 'sliderJS',
+        libraryTarget: 'this'
     },
     resolve: {
         modules: [path.resolve(__dirname, 'src')],

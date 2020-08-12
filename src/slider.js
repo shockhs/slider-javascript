@@ -3,7 +3,7 @@ import arrow from './assets/icons/arrow.svg'
 import down from './assets/icons/down.svg'
 import styles from './assets/styles/slider.css'
 
-export const sliderJS = (sliderName, { width = 940, height = 270, timeout = 3000, hideControls = false }) => {
+const sliderJS = (sliderName, { width = 940, height = 270, timeout = 3000, hideControls = false }) => {
     const checkedWidth = (window.innerWidth > 0) && window.innerWidth >= width ? width : window.innerWidth;
 
 
@@ -302,3 +302,6 @@ export const sliderJS = (sliderName, { width = 940, height = 270, timeout = 3000
     }
 }
 
+
+
+export { sliderJS }
