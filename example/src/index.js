@@ -1,8 +1,8 @@
-import vmSliderJs from 'vm-slider-js'
+import * as slider from 'vm-slider-js'
 
-console.log(vmSliderJs)
+console.log(slider)
 
-// sliderJS('slider', {
-//     width: 940,
-//     timeout: 2000
-// })
+slider.sliderJS.sliderJS('slider', {
+    width: 940,
+    timeout: 2000
+})
