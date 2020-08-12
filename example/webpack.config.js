@@ -12,7 +12,6 @@ const loaderModuleOptions = () => {
 
 const babelOptions = preset => {
     const options = {
-        sourceType: 'unambiguous',
         presets: [
             '@babel/preset-env'
         ],
@@ -51,7 +50,7 @@ module.exports = {
                 test: /\.js$/,
                 exclude: /node-modules/,
                 use: loaderModuleOptions()
-            },
+            }
         ]
     }
 }
