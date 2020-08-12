@@ -4,7 +4,7 @@ Get simple slider for your application
 
 # Installation
 
-`npm i vmslider --save`
+`npm i vm-slider-js --save`
 
 Then...
 
