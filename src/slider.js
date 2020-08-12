@@ -302,9 +302,9 @@ import styles from './assets/styles/slider.css'
         }
     }
     if (typeof module !== 'undefined' && typeof module.exports !== 'undefined') {
-        module.exports = SimpleSlider;
+        module.exports = sliderJS;
     } else {
-        window.SimpleSlider = SimpleSlider;
+        window.sliderJS = sliderJS;
     }
 
 })(window);
