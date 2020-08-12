@@ -9,7 +9,7 @@ Get simple slider for your application
 Then...
 
 ```
-import { sliderJS } from 'vmsliderjs';
+import sliderJS  from 'vmsliderjs';
 
 sliderJS('slider', options)
 
