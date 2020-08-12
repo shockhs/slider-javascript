@@ -9,21 +9,23 @@ Get simple slider for your application
 Then...
 
 ```
-import { sliderJS } from 'vm-slider-js'
-
-sliderJS.createSlider('slider', {
-    width: 940,
-    timeout: 2000, 
-    ...other options
-})
-
 
 <div id="slider" class="slider"> 
-    <img src="https://slidesjs.com/img/example-slide-350-1.jpg" alt="Slider #1" />
-    <img src="https://slidesjs.com/img/example-slide-350-2.jpg" alt="Slider #2" />
-    <img src="https://slidesjs.com/img/example-slide-350-3.jpg" alt="Slider #3" />
-    <img src="https://slidesjs.com/img/example-slide-350-4.jpg" alt="Slider #4" />
+    <img src="#" alt="Slider #1" />
+    <img src="#" alt="Slider #2" />
+    <img src="#" alt="Slider #3" />
+    <img src="#" alt="Slider #4" />
 </div>
+
+<script>
+    import { sliderJS } from 'vm-slider-js'
+
+    sliderJS.createSlider('slider', {
+        width: 940,
+        timeout: 2000, 
+        ...other options
+    })
+</script>
 
 ```
 
