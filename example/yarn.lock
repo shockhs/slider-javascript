@@ -4975,10 +4975,10 @@ vm-browserify@^1.0.1:
   resolved "https://registry.yarnpkg.com/vm-browserify/-/vm-browserify-1.1.2.tgz#78641c488b8e6ca91a75f511e7a3b32a86e5dda0"
   integrity sha512-2ham8XPWTONajOR0ohOKOHXkm3+gaBmGut3SRuu75xLd/RRaY6vqgh8NBYYk7+RW3u5AtzPQZG8F10LHkl0lAQ==
 
-vm-slider-js@^2.5.0:
-  version "2.5.0"
-  resolved "https://registry.yarnpkg.com/vm-slider-js/-/vm-slider-js-2.5.0.tgz#2fb8bf6f748a3b53088ce1fc877ea710c4d87da3"
-  integrity sha512-fYScJbGEC4M9mjjn+tIOjRGF2Hdb6Lt7PAD65XKA8Tj5xXWzqJQTck9FA64V3kikjNO7WM8vKaU2itX8UHam7w==
+vm-slider-js@^2.6.0:
+  version "2.6.0"
+  resolved "https://registry.yarnpkg.com/vm-slider-js/-/vm-slider-js-2.6.0.tgz#cade848e739faf1e606971448f1e402af9714ed3"
+  integrity sha512-k5bP91989NJLwZtUoljlYkuew20/c169mzNQA+24SZjuGic3yjl+ZUJ/DrJgDmsFofgKjCwC7uphrP+OLdsYVg==
 
 watchpack-chokidar2@^2.0.0:
   version "2.0.0"
