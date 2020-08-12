@@ -1,7 +1,8 @@
 {
   "name": "slider-vm",
-  "version": "2.0.0",
-  "main": "dist/main.js",
+  "version": "1.0.0",
+  "main": "dist/sliderjs.js",
+  "module": "src/slider.js",
   "license": "MIT",
   "author": "Vagan Mkrtchyan <perfoma777@mail.ru>",
   "scripts": {

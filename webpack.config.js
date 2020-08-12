@@ -5,8 +5,10 @@ module.exports = {
     context: path.resolve(__dirname, 'src'),
     entry: './slider.js',
     output: {
-        filename: '[name].js',
+        filename: 'sliderjs.js',
         path: path.resolve(__dirname, 'dist'),
+        library: 'sliderJS', 
+        libraryTarget: 'var'
     }, 
     resolve: {
         modules: [path.resolve(__dirname, 'src'), 'node_modules'],
