@@ -22,7 +22,10 @@ npm install vm-slider-js
 yarn add vm-slider-js
 ```
 
-<b>HTML</b>
+
+## Usage
+
+###### HTML
 ```
 <!DOCTYPE html>
 <html lang="en">
@@ -60,7 +63,7 @@ yarn add vm-slider-js
 </html>
 ```
 
-<b>NPM</b>
+###### NPM
 
 ```
 import { sliderJS } from 'vm-slider-js'
@@ -69,8 +72,6 @@ sliderJS('slider', {
     width: 940,
     timeout: 2000,
 })
-
-
 ```
 
 # Options
