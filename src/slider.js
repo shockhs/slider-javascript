@@ -3,24 +3,23 @@ import arrow from './assets/icons/arrow.svg'
 import down from './assets/icons/down.svg'
 import styles from './assets/styles/slider.css'
 
-const createSlider = (sliderName, { width = 940, height = 270, timeout = 3000, hideControls = false }) => {
-    const checkedWidth = (window.innerWidth > 0) && window.innerWidth >= width ? width : window.innerWidth;
+export default function sliderJS(sliderName, { width = 940, height = 270, timeout = 3000, hideControls = false }) {
+    const checkedWidth = window.innerWidth > 0 && window.innerWidth >= width ? width : window.innerWidth
 
-
-    let root = document.documentElement;
-    root.style.setProperty('--checkedWidth', checkedWidth + "px");
-    root.style.setProperty('--height', height + "px");
+    const root = document.documentElement
+    root.style.setProperty('--checkedWidth', `${checkedWidth}px`)
+    root.style.setProperty('--height', `${height}px`)
 
     const slider = document.getElementById(sliderName)
 
-    if (!slider) return;
+    if (!slider) return
 
     slider.className = 'slider'
 
-    const defaultNumberOfElements = slider.children.length;
+    const defaultNumberOfElements = slider.children.length
     let numberOfElements = defaultNumberOfElements
 
-    if (numberOfElements === 0) return;
+    if (numberOfElements === 0) return
 
     const slidesContainer = document.createElement('div')
     const controlContainer = document.createElement('div')
@@ -48,7 +47,9 @@ const createSlider = (sliderName, { width = 940, height = 270, timeout = 3000, h
     slider.append(slidesContainer)
     slider.className = styles.slider
     const childArray = [...controlContainer.children]
-    childArray.forEach(item => {
+    childArray.forEach((item) => {
+        // Присвоение стиля
+        // eslint-disable-next-line no-param-reassign
         item.className = styles.imageDefault
     })
 
@@ -63,9 +64,44 @@ const createSlider = (sliderName, { width = 940, height = 270, timeout = 3000, h
     controlContainer.children[currentNumber].className = `${styles.imageDefault} ${styles.currentNumber}`
     controlContainer.children[nextNumber].className = `${styles.imageDefault} ${styles.nextNumber}`
 
+    // Calculating nextView PREV CLICK
 
-    if (!hideControls && checkedWidth >= 724) {
-        addControls()
+    const lastPositionOfElementPrevClick = () => {
+        currentNumber = prevNumber
+        prevNumber = currentNumber - 1
+        nextNumber = 0
+    }
+
+    const firstPositionOfElementPrevClick = () => {
+        currentNumber = 0
+        prevNumber = numberOfElements - 1
+        nextNumber = currentNumber + 1
+    }
+
+    const middlePositionOfElementPrevClick = () => {
+        currentNumber -= 1
+        prevNumber = currentNumber - 1
+        nextNumber = currentNumber + 1
+    }
+
+    // Calculating nextView NEXT CLICK
+
+    const lastPositionOfElementNextClick = () => {
+        prevNumber = currentNumber
+        currentNumber = 0
+        nextNumber = currentNumber + 1
+    }
+
+    const preLastPositionOfElementNextClick = () => {
+        currentNumber = nextNumber
+        prevNumber = nextNumber - 1
+        nextNumber = 0
+    }
+
+    const middlePositionOfElementNextClick = () => {
+        currentNumber += 1
+        prevNumber = currentNumber - 1
+        nextNumber = currentNumber + 1
     }
 
     const simulationNextClick = () => {
@@ -114,46 +150,6 @@ const createSlider = (sliderName, { width = 940, height = 270, timeout = 3000, h
         buttonBlocked = false
     })
 
-    // Calculating nextView PREV CLICK
-
-    const lastPositionOfElementPrevClick = () => {
-        currentNumber = prevNumber
-        prevNumber = currentNumber - 1
-        nextNumber = 0
-    }
-
-    const firstPositionOfElementPrevClick = () => {
-        currentNumber = 0
-        prevNumber = numberOfElements - 1
-        nextNumber = currentNumber + 1
-    }
-
-    const middlePositionOfElementPrevClick = () => {
-        currentNumber--
-        prevNumber = currentNumber - 1
-        nextNumber = currentNumber + 1
-    }
-
-    // Calculating nextView NEXT CLICK
-
-    const lastPositionOfElementNextClick = () => {
-        prevNumber = currentNumber
-        currentNumber = 0
-        nextNumber = currentNumber + 1
-    }
-
-    const preLastPositionOfElementNextClick = () => {
-        currentNumber = nextNumber
-        prevNumber = nextNumber - 1
-        nextNumber = 0
-    }
-
-    const middlePositionOfElementNextClick = () => {
-        currentNumber++
-        prevNumber = currentNumber - 1
-        nextNumber = currentNumber + 1
-    }
-
     let presentation = setInterval(() => {
         simulationNextClick()
     }, timeout)
@@ -165,52 +161,67 @@ const createSlider = (sliderName, { width = 940, height = 270, timeout = 3000, h
         }, timeout)
     }
 
-    slidesContainer.addEventListener('touchstart', (event) => {
-        event.preventDefault()
-        clearInterval(presentation)
-        startPosition = event.changedTouches[0].clientX
-    }, false)
-
-    slidesContainer.addEventListener('touchend', (event) => {
-        event.preventDefault()
-        if (event.changedTouches[0].clientX - startPosition > 0) {
-            simulationPrevClick()
-            if (statusPresentation) resetInterval()
-        } else {
-            simulationNextClick()
-            if (statusPresentation) resetInterval()
-        }
-    }, false)
-
-    slidesContainer.addEventListener('mousedown', (event) => {
-        event.preventDefault()
-        if (!buttonBlocked) {
+    slidesContainer.addEventListener(
+        'touchstart',
+        (event) => {
+            event.preventDefault()
             clearInterval(presentation)
-            startPosition = event.clientX
-        }
-    }, false)
+            startPosition = event.changedTouches[0].clientX
+        },
+        false
+    )
 
-
-    slidesContainer.addEventListener('mouseup', (event) => {
-        event.preventDefault()
-        if (!buttonBlocked) {
-            if (event.clientX - startPosition > 0) {
+    slidesContainer.addEventListener(
+        'touchend',
+        (event) => {
+            event.preventDefault()
+            if (event.changedTouches[0].clientX - startPosition > 0) {
                 simulationPrevClick()
                 if (statusPresentation) resetInterval()
-            } else if (event.clientX - startPosition < 0) {
+            } else {
                 simulationNextClick()
                 if (statusPresentation) resetInterval()
             }
-        }
-    }, false)
+        },
+        false
+    )
 
-    window.addEventListener('focus', function () {
+    slidesContainer.addEventListener(
+        'mousedown',
+        (event) => {
+            event.preventDefault()
+            if (!buttonBlocked) {
+                clearInterval(presentation)
+                startPosition = event.clientX
+            }
+        },
+        false
+    )
+
+    slidesContainer.addEventListener(
+        'mouseup',
+        (event) => {
+            event.preventDefault()
+            if (!buttonBlocked) {
+                if (event.clientX - startPosition > 0) {
+                    simulationPrevClick()
+                    if (statusPresentation) resetInterval()
+                } else if (event.clientX - startPosition < 0) {
+                    simulationNextClick()
+                    if (statusPresentation) resetInterval()
+                }
+            }
+        },
+        false
+    )
+
+    window.addEventListener('focus', () => {
         resetInterval()
-    });
+    })
 
-    window.addEventListener('blur', function () {
+    window.addEventListener('blur', () => {
         clearInterval(presentation)
-    });
+    })
 
     function addControls() {
         let statusButtonsVisibility = true
@@ -228,7 +239,6 @@ const createSlider = (sliderName, { width = 940, height = 270, timeout = 3000, h
         const righttoplay = btnPlayPause.getElementsByClassName('righttoplay')[0]
         const lefttopause = btnPlayPause.getElementsByClassName('lefttopause')[0]
         const righttopause = btnPlayPause.getElementsByClassName('righttopause')[0]
-
 
         const btnPrev = document.createElement('button')
         const btnNext = document.createElement('button')
@@ -259,7 +269,6 @@ const createSlider = (sliderName, { width = 940, height = 270, timeout = 3000, h
             btnPrev.disabled = false
         }
 
-
         btnHideActionBar.addEventListener('click', () => {
             if (statusButtonsVisibility) {
                 btnHideActionBar.classList.toggle(styles.hideClick)
@@ -272,21 +281,24 @@ const createSlider = (sliderName, { width = 940, height = 270, timeout = 3000, h
             }
         })
 
-
-        btnPlayPause.addEventListener('click', (e) => {
-            e.preventDefault()
-            if (statusPresentation) {
-                lefttoplay.beginElement();
-                righttoplay.beginElement();
-                statusPresentation = false
-                clearInterval(presentation)
-            } else {
-                lefttopause.beginElement();
-                righttopause.beginElement();
-                statusPresentation = true
-                resetInterval()
-            }
-        }, false)
+        btnPlayPause.addEventListener(
+            'click',
+            (e) => {
+                e.preventDefault()
+                if (statusPresentation) {
+                    lefttoplay.beginElement()
+                    righttoplay.beginElement()
+                    statusPresentation = false
+                    clearInterval(presentation)
+                } else {
+                    lefttopause.beginElement()
+                    righttopause.beginElement()
+                    statusPresentation = true
+                    resetInterval()
+                }
+            },
+            false
+        )
 
         btnNext.addEventListener('click', () => {
             if (!buttonBlocked) {
@@ -302,8 +314,8 @@ const createSlider = (sliderName, { width = 940, height = 270, timeout = 3000, h
             }
         })
     }
+
+    if (!hideControls && checkedWidth >= 724) {
+        addControls()
+    }
 }
-
-
-
-export { createSlider }

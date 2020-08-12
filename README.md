@@ -49,7 +49,7 @@ yarn add vm-slider-js
     <script src="../../dist/vm-slider-js.js"></script>
     <script>
         document.addEventListener("DOMContentLoaded", function (event) {
-            sliderJS.createSlider('slider', {
+            sliderJS.default('slider', {
                 width: 940,
                 timeout: 2000
             })
@@ -63,9 +63,9 @@ yarn add vm-slider-js
 <b>NPM</b>
 
 ```
-import { sliderJS } from 'vm-slider-js'
+import sliderJS from 'vm-slider-js'
 
-sliderJS.createSlider('slider', {
+sliderJS('slider', {
     width: 940,
     timeout: 2000
 })

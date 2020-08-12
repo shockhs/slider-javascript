@@ -1,205 +1,204 @@
 :root {
-  --checkedWidth: 940px;
-  --height: 270px;
+    --checkedWidth: 940px;
+    --height: 270px;
 }
 .controlContainer {
-  position: relative;
-  left: 0px;
-  width: var(--checkedWidth);
-  height: var(--height);
+    position: relative;
+    left: 0px;
+    width: var(--checkedWidth);
+    height: var(--height);
 }
 
 .slidesContainer {
-  overflow: hidden;
-  position: relative;
-  width: var(--checkedWidth);
-  height: var(--height);
+    overflow: hidden;
+    position: relative;
+    width: var(--checkedWidth);
+    height: var(--height);
 }
 
 .buttonContainer {
-  outline: none;
-  width: calc(var(--checkedWidth) - 100px);
-  bottom: 0;
-  padding: 10px;
-  margin-top: 10px;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  -webkit-box-pack: justify;
-  -ms-flex-pack: justify;
-  justify-content: space-between;
+    outline: none;
+    width: calc(var(--checkedWidth) - 100px);
+    bottom: 0;
+    padding: 10px;
+    margin-top: 10px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-box-pack: justify;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
 }
 
-
 .btnHideActionBar {
-  border: none;
-  outline: none;
-  padding: 0;
-  background-color: transparent;
-  -webkit-transition: -webkit-transform 0.7s ease-in-out;
-  transition: -webkit-transform 0.7s ease-in-out;
-  -o-transition: transform 0.7s ease-in-out;
-  transition: transform 0.7s ease-in-out;
-  transition: transform 0.7s ease-in-out, -webkit-transform 0.7s ease-in-out;
-  -webkit-transform-origin: 50% 50%;
-  -ms-transform-origin: 50% 50%;
-  transform-origin: 50% 50%;
+    border: none;
+    outline: none;
+    padding: 0;
+    background-color: transparent;
+    -webkit-transition: -webkit-transform 0.7s ease-in-out;
+    transition: -webkit-transform 0.7s ease-in-out;
+    -o-transition: transform 0.7s ease-in-out;
+    transition: transform 0.7s ease-in-out;
+    transition: transform 0.7s ease-in-out, -webkit-transform 0.7s ease-in-out;
+    -webkit-transform-origin: 50% 50%;
+    -ms-transform-origin: 50% 50%;
+    transform-origin: 50% 50%;
 }
 
 .btnHideActionBar svg {
-  height: 60px;
+    height: 60px;
 }
 
 .btnPrev {
-  border: none;
-  outline: none;
-  padding: 0;
-  background-color: transparent;
-  -webkit-transition: opacity 0.7s ease-in-out;
-  -o-transition: opacity 0.7s ease-in-out;
-  transition: opacity 0.7s ease-in-out;
+    border: none;
+    outline: none;
+    padding: 0;
+    background-color: transparent;
+    -webkit-transition: opacity 0.7s ease-in-out;
+    -o-transition: opacity 0.7s ease-in-out;
+    transition: opacity 0.7s ease-in-out;
 }
 
 .btnPrev svg {
-  fill:#000;
-  -webkit-transition: opacity 0.7s ease-in-out;
-  -o-transition: opacity 0.7s ease-in-out;
-  transition: opacity 0.7s ease-in-out;
-  height: 60px;
+    fill: #000;
+    -webkit-transition: opacity 0.7s ease-in-out;
+    -o-transition: opacity 0.7s ease-in-out;
+    transition: opacity 0.7s ease-in-out;
+    height: 60px;
 }
 
 .btnNext {
-  border: none;
-  outline: none;
-  padding: 0;
-  background-color: transparent;
-  -webkit-transform: rotate(180deg);
-  -ms-transform: rotate(180deg);
-  transform: rotate(180deg);
-  -webkit-transition: opacity 0.7s ease-in-out;
-  -o-transition: opacity 0.7s ease-in-out;
-  transition: opacity 0.7s ease-in-out;
+    border: none;
+    outline: none;
+    padding: 0;
+    background-color: transparent;
+    -webkit-transform: rotate(180deg);
+    -ms-transform: rotate(180deg);
+    transform: rotate(180deg);
+    -webkit-transition: opacity 0.7s ease-in-out;
+    -o-transition: opacity 0.7s ease-in-out;
+    transition: opacity 0.7s ease-in-out;
 }
 
 .btnNext svg {
-  fill:#000;
-  width: 100px;
-  height: 60px;
-  -webkit-transition: opacity 0.7s ease-in-out;
-  -o-transition: opacity 0.7s ease-in-out;
-  transition: opacity 0.7s ease-in-out;
+    fill: #000;
+    width: 100px;
+    height: 60px;
+    -webkit-transition: opacity 0.7s ease-in-out;
+    -o-transition: opacity 0.7s ease-in-out;
+    transition: opacity 0.7s ease-in-out;
 }
 
 .imageDefault {
-  display: none;
-  position: absolute;
-  top: 0px;
-  left: 0px;
-  width: var(--checkedWidth);
-  z-index: 0;
-  -webkit-backface-visibility: hidden;
-  backface-visibility: hidden;
+    display: none;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    width: var(--checkedWidth);
+    z-index: 0;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
 }
 
 .singleImage {
-  width: var(--checkedWidth);
-  height: var(--height);
+    width: var(--checkedWidth);
+    height: var(--height);
 }
 
 img {
-  width: 100%;
+    width: 100%;
 }
 
 .slider {
-  overflow: hidden;
-  display: block;
+    overflow: hidden;
+    display: block;
 }
 
 .slider .playPauseBtn svg {
-  fill: #000;
-  height: 60px;
-  -webkit-transition: opacity 0.7s ease-in-out;
-  -o-transition: opacity 0.7s ease-in-out;
-  transition: opacity 0.7s ease-in-out;
-  display: block;
-  margin: 0 auto;
+    fill: #000;
+    height: 60px;
+    -webkit-transition: opacity 0.7s ease-in-out;
+    -o-transition: opacity 0.7s ease-in-out;
+    transition: opacity 0.7s ease-in-out;
+    display: block;
+    margin: 0 auto;
 }
 
 .slider .playPauseBtn {
-  border: none;
-  outline: none;
-  padding: 0;
-  background-color: transparent;
-  -webkit-transition: opacity 0.7s ease-in-out;
-  -o-transition: opacity 0.7s ease-in-out;
-  transition: opacity 0.7s ease-in-out;
+    border: none;
+    outline: none;
+    padding: 0;
+    background-color: transparent;
+    -webkit-transition: opacity 0.7s ease-in-out;
+    -o-transition: opacity 0.7s ease-in-out;
+    transition: opacity 0.7s ease-in-out;
 }
 
 button {
-  cursor: pointer;
+    cursor: pointer;
 }
 
 button:disabled {
-  cursor: default;
+    cursor: default;
 }
 
 .opacityInvisible,
 .opacityInvisible svg {
-  opacity: 0;
+    opacity: 0;
 }
 
 .nextClick {
-  -webkit-transition: -webkit-transform 0.7s ease-in-out;
-  transition: -webkit-transform 0.7s ease-in-out;
-  -o-transition: transform 0.7s ease-in-out;
-  transition: transform 0.7s ease-in-out;
-  transition: transform 0.7s ease-in-out, -webkit-transform 0.7s ease-in-out;
-  -webkit-transform: translateX(calc(-1 * var(--checkedWidth)));
-  -ms-transform: translateX(calc(-1 * var(--checkedWidth)));
-  transform: translateX(calc(-1 * var(--checkedWidth)));
+    -webkit-transition: -webkit-transform 0.7s ease-in-out;
+    transition: -webkit-transform 0.7s ease-in-out;
+    -o-transition: transform 0.7s ease-in-out;
+    transition: transform 0.7s ease-in-out;
+    transition: transform 0.7s ease-in-out, -webkit-transform 0.7s ease-in-out;
+    -webkit-transform: translateX(calc(-1 * var(--checkedWidth)));
+    -ms-transform: translateX(calc(-1 * var(--checkedWidth)));
+    transform: translateX(calc(-1 * var(--checkedWidth)));
 }
 
 .prevClick {
-  -webkit-transition: -webkit-transform 0.7s ease-in-out;
-  transition: -webkit-transform 0.7s ease-in-out;
-  -o-transition: transform 0.7s ease-in-out;
-  transition: transform 0.7s ease-in-out;
-  transition: transform 0.7s ease-in-out, -webkit-transform 0.7s ease-in-out;
-  -webkit-transform: translateX(var(--checkedWidth));
-  -ms-transform: translateX(var(--checkedWidth));
-  transform: translateX(var(--checkedWidth));
+    -webkit-transition: -webkit-transform 0.7s ease-in-out;
+    transition: -webkit-transform 0.7s ease-in-out;
+    -o-transition: transform 0.7s ease-in-out;
+    transition: transform 0.7s ease-in-out;
+    transition: transform 0.7s ease-in-out, -webkit-transform 0.7s ease-in-out;
+    -webkit-transform: translateX(var(--checkedWidth));
+    -ms-transform: translateX(var(--checkedWidth));
+    transform: translateX(var(--checkedWidth));
 }
 
 .hideClick {
-  -webkit-transform: rotateX(180deg);
-  transform: rotateX(180deg);
+    -webkit-transform: rotateX(180deg);
+    transform: rotateX(180deg);
 }
 
 .prevNumber {
-  display: block;
-  z-index: 0;
-  left: calc(-1 * var(--checkedWidth));
+    display: block;
+    z-index: 0;
+    left: calc(-1 * var(--checkedWidth));
 }
 
 .currentNumber {
-  display: block;
-  z-index: 10;
-  left: 0;
+    display: block;
+    z-index: 10;
+    left: 0;
 }
 
 .nextNumber {
-  display: block;
-  z-index: 0;
-  left: var(--checkedWidth);
+    display: block;
+    z-index: 0;
+    left: var(--checkedWidth);
 }
 
 .zIndexDefault {
-  z-index: 0;
+    z-index: 0;
 }
 
 .zIndexActive {
-  z-index: 10;
+    z-index: 10;
 }

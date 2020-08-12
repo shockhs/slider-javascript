@@ -9,17 +9,17 @@ module.exports = {
         filename: 'vm-slider-js.js',
         path: path.resolve(__dirname, 'dist'),
         library: 'sliderJS',
-        libraryTarget: 'this'
+        libraryTarget: 'this',
     },
     resolve: {
         modules: [path.resolve(__dirname, 'src')],
-        extensions: ['.wasm', '.mjs', '.js', '.jsx', '.ts', '.tsx', '.json']
+        extensions: ['.wasm', '.mjs', '.js', '.jsx', '.ts', '.tsx', '.json'],
     },
     module: {
         rules: [
             {
                 test: /\.svg$/,
-                loader: 'svg-inline-loader'
+                loader: 'svg-inline-loader',
             },
             {
                 test: /\.css$/,
@@ -29,14 +29,12 @@ module.exports = {
                         loader: 'css-loader',
                         options: {
                             importLoaders: 1,
-                            modules: true
-                        }
-                    }
-                ]
-            }
+                            modules: true,
+                        },
+                    },
+                ],
+            },
         ],
     },
-    plugins: [
-        new CleanWebpackPlugin()
-    ],
+    plugins: [new CleanWebpackPlugin()],
 }
