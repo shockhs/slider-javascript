@@ -9,9 +9,13 @@ Get simple slider for your application
 Then...
 
 ```
-import sliderJS from 'vm-slider-js';
+import { sliderJS } from 'vm-slider-js'
 
-sliderJS('slider', options)
+sliderJS.createSlider('slider', {
+    width: 940,
+    timeout: 2000, 
+    ...other options
+})
 
 ```
 
