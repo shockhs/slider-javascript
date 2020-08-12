@@ -9,6 +9,7 @@ module.exports = {
         filename: 'vm-slider-js.js',
         path: path.resolve(__dirname, 'dist'),
         library: 'sliderJS',
+        libraryExport: 'default',
         libraryTarget: 'this',
     },
     resolve: {

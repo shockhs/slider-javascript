@@ -3,7 +3,7 @@ import arrow from './assets/icons/arrow.svg'
 import down from './assets/icons/down.svg'
 import styles from './assets/styles/slider.css'
 
-export default function sliderJS(sliderName, { width = 940, height = 270, timeout = 3000, hideControls = false }) {
+export default (sliderName, { width = 940, height = 270, timeout = 3000, hideControls = false }) => {
     const checkedWidth = window.innerWidth > 0 && window.innerWidth >= width ? width : window.innerWidth
 
     const root = document.documentElement
