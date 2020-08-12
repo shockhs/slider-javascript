@@ -1,7 +1,7 @@
 {
   "name": "vmslider-js",
   "version": "1.19.0",
-  "main": "src/main.js",
+  "main": "dist/main.js",
   "license": "MIT",
   "author": "Vagan Mkrtchyan <perfoma777@mail.ru>",
   "scripts": {
