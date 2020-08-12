@@ -1,7 +1,7 @@
 {
-  "name": "slider-vm",
-  "version": "1.1.0",
-  "main": "dist/sliderjs.js",
+  "name": "vm-slider-js",
+  "version": "1.0.0",
+  "main": "dist/vm-slider-js.js",
   "module": "src/slider.js",
   "license": "MIT",
   "author": "Vagan Mkrtchyan <perfoma777@mail.ru>",
@@ -19,8 +19,5 @@
     "terser-webpack-plugin": "^3.0.7",
     "webpack": "^4.44.0",
     "webpack-cli": "^3.3.12"
-  },
-  "dependencies": {
-    "slider-vm": "^1.0.0"
   }
 }

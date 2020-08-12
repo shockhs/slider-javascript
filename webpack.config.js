@@ -5,9 +5,9 @@ module.exports = {
     context: path.resolve(__dirname, 'src'),
     entry: './slider.js',
     output: {
-        filename: 'sliderjs.js',
+        filename: 'vm-slider-js.js',
         path: path.resolve(__dirname, 'dist'),
-        library: 'sliderJS', 
+        library: 'vmSlider', 
         libraryTarget: 'var'
     }, 
     resolve: {

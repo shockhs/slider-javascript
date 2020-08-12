@@ -9,18 +9,17 @@ Get simple slider for your application
 Then...
 
 ```
-import sliderJS  from 'vmsliderjs';
+import sliderJS from 'vm-slider-js';
 
 sliderJS('slider', options)
 
 ```
 
-# Options 
+# Options
 
 SliderJS supports 4 options which are all optional:
 
-* *hideControls* - true / false (Default is false)
-* *width* - size of images in (px) (Default 940)
-* *height* - height of images (px) (Default is 270)
-* *timeout* - auto sliding timer (ms) (Default is 3000)
-
+- _hideControls_ - true / false (Default is false)
+- _width_ - size of images in (px) (Default 940)
+- _height_ - height of images (px) (Default is 270)
+- _timeout_ - auto sliding timer (ms) (Default is 3000)
