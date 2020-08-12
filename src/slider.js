@@ -3,8 +3,10 @@ import arrow from './assets/icons/arrow.svg'
 import down from './assets/icons/down.svg'
 import styles from './assets/styles/slider.css'
 
-module.exports = {
-    sliderJS: function(sliderName, { width = 940, height = 270, timeout = 3000, hideControls = false }) {
+(function (window) {
+
+    'use strict';
+    const sliderJS = function (sliderName, { width = 940, height = 270, timeout = 3000, hideControls = false }) {
         const checkedWidth = (window.innerWidth > 0) && window.innerWidth >= width ? width : window.innerWidth;
 
         let root = document.documentElement;
@@ -299,4 +301,10 @@ module.exports = {
             })
         }
     }
-}
+    if (typeof module !== 'undefined' && typeof module.exports !== 'undefined') {
+        module.exports = SimpleSlider;
+    } else {
+        window.SimpleSlider = SimpleSlider;
+    }
+
+})(window);
