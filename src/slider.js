@@ -300,4 +300,4 @@ function sliderJS(sliderName, { width = 940, height = 270, timeout = 3000, hideC
 }
 
 
-module.exports = { sliderJS }
+export default sliderJS
