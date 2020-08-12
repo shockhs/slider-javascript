@@ -1,6 +1,6 @@
 {
   "name": "vm-slider-js",
-  "version": "1.3.0",
+  "version": "1.4.0",
   "main": "dist/vm-slider-js.js",
   "license": "MIT",
   "author": "Vagan Mkrtchyan <perfoma777@mail.ru>",
