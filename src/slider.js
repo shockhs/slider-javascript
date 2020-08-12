@@ -301,9 +301,8 @@ import styles from './assets/styles/slider.css'
         }
     }
     if (typeof module !== 'undefined' && typeof module.exports !== 'undefined') {
-        module.exports = sliderJS
+        module.exports.sliderJS = sliderJS
     } else {
         window.sliderJS = sliderJS;
     }
-
 })(window);
