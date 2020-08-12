@@ -5,7 +5,6 @@ import styles from './assets/styles/slider.css'
 
 (function (window) {
 
-    'use strict';
     const sliderJS = function (sliderName, { width = 940, height = 270, timeout = 3000, hideControls = false }) {
         const checkedWidth = (window.innerWidth > 0) && window.innerWidth >= width ? width : window.innerWidth;
 
@@ -302,7 +301,7 @@ import styles from './assets/styles/slider.css'
         }
     }
     if (typeof module !== 'undefined' && typeof module.exports !== 'undefined') {
-        module.exports = { sliderJS };
+        module.exports = sliderJS
     } else {
         window.sliderJS = sliderJS;
     }
