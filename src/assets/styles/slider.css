@@ -98,12 +98,14 @@
     top: 0px;
     left: 0px;
     width: var(--checkedWidth);
+    height: var(--height);
     z-index: 0;
     -webkit-backface-visibility: hidden;
     backface-visibility: hidden;
 }
 
-.singleImage {
+
+.singleImage, .imageDefault img {
     width: var(--checkedWidth);
     height: var(--height);
 }
@@ -195,10 +197,3 @@ button:disabled {
     left: var(--checkedWidth);
 }
 
-.zIndexDefault {
-    z-index: 0;
-}
-
-.zIndexActive {
-    z-index: 10;
-}

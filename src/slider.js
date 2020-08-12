@@ -115,10 +115,6 @@ export default (sliderName, { width = 940, height = 270, timeout = 3000, hideCon
         } else {
             middlePositionOfElementNextClick()
         }
-
-        controlContainer.children[prevNumber].classList.add(styles.zIndexDefault)
-        controlContainer.children[currentNumber].classList.add(styles.zIndexActive)
-        controlContainer.children[nextNumber].classList.add(styles.zIndexDefault)
     }
 
     const simulationPrevClick = () => {
@@ -132,10 +128,6 @@ export default (sliderName, { width = 940, height = 270, timeout = 3000, hideCon
         } else {
             middlePositionOfElementPrevClick()
         }
-
-        controlContainer.children[prevNumber].classList.add(styles.zIndexDefault)
-        controlContainer.children[currentNumber].classList.add(styles.zIndexActive)
-        controlContainer.children[nextNumber].classList.add(styles.zIndexDefault)
     }
 
     controlContainer.addEventListener('transitionstart', () => {
@@ -315,7 +307,7 @@ export default (sliderName, { width = 940, height = 270, timeout = 3000, hideCon
         })
     }
 
-    if (!hideControls && checkedWidth >= 724) {
+    if (!hideControls && window.innerWidth >= 724) {
         addControls()
     }
 }

@@ -2,7 +2,6 @@
 
 Get simple slider for your application
 
-
 ## Version
 1.9.0
 
@@ -49,11 +48,11 @@ yarn add vm-slider-js
         <img src="#" alt="Slider #4" />
     </div>
 
-    <script src="../../dist/vm-slider-js.js"></script>
+    <script src="./dist/vm-slider-js.js"></script>
     <script>
         document.addEventListener("DOMContentLoaded", function (event) {
             sliderJS('slider', {
-                width: 940,
+                width: 540,
                 timeout: 2000
             })
         })
