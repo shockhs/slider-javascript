@@ -1,7 +1,6 @@
-const slider = require('vmslider-js')
+import sliderJS from 'vmsliderjs';
 
-
-slider.sliderJS('slider', {
+sliderJS('slider', {
     width: 940,
     timeout: 2000
 })

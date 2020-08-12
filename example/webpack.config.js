@@ -1,10 +1,10 @@
 const path = require('path')
 const { CleanWebpackPlugin } = require('clean-webpack-plugin')
 const TerserWebpackPlugin = require('terser-webpack-plugin')
+const HTMLWebpackPlugin = require('html-webpack-plugin')
 
 module.exports = {
-    context: path.resolve(__dirname, 'src'),
-    entry: './index.js',
+    entry: './src/index.js',
     output: {
         filename: '[name].js',
         path: path.resolve(__dirname, 'dist'),
@@ -14,8 +14,19 @@ module.exports = {
         extensions: ['.wasm', '.mjs', '.js', '.jsx', '.ts', '.tsx', '.json']
     },
     plugins: [
+        new HTMLWebpackPlugin({
+            template: './public/index.html'
+        }),
         new CleanWebpackPlugin()
     ],
+    devServer: {
+        contentBase: path.resolve(__dirname, 'dist'),
+        hot: true,
+        port: 4200
+    },
+    optimization: {
+        minimizer: [new TerserWebpackPlugin()]
+    },
     module: {
         rules: [
             {
