@@ -3,14 +3,17 @@ import arrow from './assets/icons/arrow.svg'
 import down from './assets/icons/down.svg'
 import styles from './assets/styles/slider.css'
 
-const sliderJS = function (sliderName, { width = 940, height = 270, timeout = 3000, hideControls = false }) {
+export function sliderJS(sliderName, { width = 940, height = 270, timeout = 3000, hideControls = false }) {
     const checkedWidth = (window.innerWidth > 0) && window.innerWidth >= width ? width : window.innerWidth;
+
 
     let root = document.documentElement;
     root.style.setProperty('--checkedWidth', checkedWidth + "px");
     root.style.setProperty('--height', height + "px");
 
     const slider = document.getElementById(sliderName)
+
+    if (!slider) return;
 
     const defaultNumberOfElements = slider.children.length;
     let numberOfElements = defaultNumberOfElements
@@ -298,5 +301,4 @@ const sliderJS = function (sliderName, { width = 940, height = 270, timeout = 30
         })
     }
 }
-export default sliderJS
 
