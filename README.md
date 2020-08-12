@@ -2,30 +2,75 @@
 
 Get simple slider for your application
 
-# Installation
 
-`npm i vm-slider-js --save`
+## Version
+1.9.0
 
-Then...
+## Installation
+
+Install the package 
+
+###### npm 
+
+```
+npm install vm-slider-js
+```
+
+###### npm 
+
+```
+yarn add vm-slider-js
+```
+
 
 ```
 
-<div id="slider"> 
-    <img src="#" alt="Slider #1" />
-    <img src="#" alt="Slider #2" />
-    <img src="#" alt="Slider #3" />
-    <img src="#" alt="Slider #4" />
-</div>
+<b>HTML</b>
 
-<script>
-    import { sliderJS } from 'vm-slider-js'
+<!DOCTYPE html>
+<html lang="en">
 
-    sliderJS.createSlider('slider', {
-        width: 940,
-        timeout: 2000, 
-        ...other options
-    })
-</script>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Slider App</title>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="slider">
+        <img src="#" alt="Slider #1" />
+        <img src="#" alt="Slider #2" />
+        <img src="#" alt="Slider #3" />
+        <img src="#" alt="Slider #4" />
+    </div>
+
+    <script src="../../dist/vm-slider-js.js"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function (event) {
+            sliderJS.createSlider('slider', {
+                width: 940,
+                timeout: 2000
+            })
+        })
+    </script>
+</body>
+
+</html>
+
+
+<b>NPM</b>
+
+import { sliderJS } from 'vm-slider-js'
+
+sliderJS.createSlider('slider', {
+    width: 940,
+    timeout: 2000
+})
 
 ```
 
@@ -33,7 +78,7 @@ Then...
 
 SliderJS supports 4 options which are all optional:
 
-- _hideControls_ - true / false (Default is false)
-- _width_ - size of images in (px) (Default 940)
-- _height_ - height of images (px) (Default is 270)
-- _timeout_ - auto sliding timer (ms) (Default is 3000)
+-   _hideControls_ - true / false (Default is false)
+-   _width_ - size of images in (px) (Default 940)
+-   _height_ - height of images (px) (Default is 270)
+-   _timeout_ - auto sliding timer (ms) (Default is 3000)
