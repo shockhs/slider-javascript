@@ -1,7 +1,3 @@
-<p align="center">
-    <a href="https://github.com/EsaxCO/slider-javascript"><img width="740" src="https://github.com/EsaxCO/slider-javascript/blob/master/example/screenshots/slider.png?sanitize=true" ></a>
-</p>
-
 # What is this?
 
 Get simple slider for your application
@@ -28,7 +24,14 @@ yarn add vm-slider-js
 ```
 
 
+
+
 ## Usage
+
+<p align="center">
+    <a href="https://github.com/EsaxCO/slider-javascript"><img width="740" src="https://github.com/EsaxCO/slider-javascript/blob/master/example/screenshots/slider.png?sanitize=true" ></a>
+</p>
+
 
 ###### HTML
 ```
