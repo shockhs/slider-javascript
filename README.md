@@ -3,7 +3,7 @@
 Get simple slider for your application
 
 ## Version
-1.9.0
+3.1.0
 
 ## Installation
 
