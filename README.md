@@ -1,5 +1,5 @@
 <p align="center">
-    <a href="https://github.com/EsaxCO/slider-javascript"><img src="https://github.com/EsaxCO/slider-javascript/blob/master/example/screenshots/slider.png?sanitize=true" ></a>
+    <a href="https://github.com/EsaxCO/slider-javascript"><img width="440" src="https://github.com/EsaxCO/slider-javascript/blob/master/example/screenshots/slider.png?sanitize=true" ></a>
 </p>
 
 # What is this?
