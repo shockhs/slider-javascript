@@ -1,14 +1,18 @@
 {
-  "name": "vm-slider-js",
-  "version": "3.5.0",
-  "main": "dist/vm-slider-js.js",
-  "files": [
-    "dist"
-  ],
-  "license": "MIT",
-  "author": "Vagan Mkrtchyan <perfoma777@mail.ru>",
-  "scripts": {
-    "dev": "cross-env NODE_ENV=development webpack --mode development",
-    "build": "cross-env NODE_ENV=production webpack --mode production"
-  }
+    "name": "vm-slider-js",
+    "version": "3.5.0",
+    "main": "dist/vm-slider-js.js",
+    "files": [
+        "dist"
+    ],
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/EsaxCO/slider-javascript.git"
+    },
+    "license": "MIT",
+    "author": "Vagan Mkrtchyan <perfoma777@mail.ru>",
+    "scripts": {
+        "dev": "cross-env NODE_ENV=development webpack --mode development",
+        "build": "cross-env NODE_ENV=production webpack --mode production"
+    }
 }
