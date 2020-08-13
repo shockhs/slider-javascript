@@ -1,6 +1,12 @@
+<p align="center">
+    <a href="https://github.com/EsaxCO/slider-javascript"><img src="https://github.com/EsaxCO/slider-javascript/blob/master/example/screenshots/slider.png?sanitize=true" ></a>
+</p>
+
 # What is this?
 
 Get simple slider for your application
+
+[demo](https://esaxco.github.io/slider-javascript/)
 
 ## Version
 3.3.0
