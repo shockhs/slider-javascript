@@ -2,8 +2,9 @@ import svgOuterHTMLElement from './assets/icons/svg'
 import arrow from './assets/icons/arrow.svg'
 import down from './assets/icons/down.svg'
 import styles from './assets/styles/slider.css'
+import { getNextPosition } from './position'
 
-export default (sliderName, { width = 940, height = 270, timeout = 3000, hideControls = false }) => {
+export default (sliderName, { width = 940, height = 270, timeout = 3000, hideControls = false } = {}) => {
     const checkedWidth = window.innerWidth > 0 && window.innerWidth >= width ? width : window.innerWidth
 
     const root = document.documentElement
@@ -12,14 +13,20 @@ export default (sliderName, { width = 940, height = 270, timeout = 3000, hideCon
 
     const slider = document.getElementById(sliderName)
 
-    if (!slider) return
+    if (!slider) {
+        console.log(`Не был найден слайдер с id ${sliderName}`)
+        return
+    }
 
     slider.className = 'slider'
 
     const defaultNumberOfElements = slider.children.length
     let numberOfElements = defaultNumberOfElements
 
-    if (numberOfElements === 0) return
+    if (numberOfElements === 0) {
+        console.log('Слайдер не содержит элементов внутри')
+        return
+    }
 
     const slidesContainer = document.createElement('div')
     const controlContainer = document.createElement('div')
@@ -64,70 +71,24 @@ export default (sliderName, { width = 940, height = 270, timeout = 3000, hideCon
     controlContainer.children[currentNumber].className = `${styles.imageDefault} ${styles.currentNumber}`
     controlContainer.children[nextNumber].className = `${styles.imageDefault} ${styles.nextNumber}`
 
-    // Calculating nextView PREV CLICK
-
-    const lastPositionOfElementPrevClick = () => {
-        currentNumber = prevNumber
-        prevNumber = currentNumber - 1
-        nextNumber = 0
-    }
-
-    const firstPositionOfElementPrevClick = () => {
-        currentNumber = 0
-        prevNumber = numberOfElements - 1
-        nextNumber = currentNumber + 1
-    }
-
-    const middlePositionOfElementPrevClick = () => {
-        currentNumber -= 1
-        prevNumber = currentNumber - 1
-        nextNumber = currentNumber + 1
-    }
-
-    // Calculating nextView NEXT CLICK
-
-    const lastPositionOfElementNextClick = () => {
-        prevNumber = currentNumber
-        currentNumber = 0
-        nextNumber = currentNumber + 1
-    }
-
-    const preLastPositionOfElementNextClick = () => {
-        currentNumber = nextNumber
-        prevNumber = nextNumber - 1
-        nextNumber = 0
-    }
-
-    const middlePositionOfElementNextClick = () => {
-        currentNumber += 1
-        prevNumber = currentNumber - 1
-        nextNumber = currentNumber + 1
-    }
-
     const simulationNextClick = () => {
         controlContainer.children[prevNumber].className = styles.imageDefault
         controlContainer.classList.add(styles.nextClick)
 
-        if (nextNumber === numberOfElements - 1) {
-            preLastPositionOfElementNextClick()
-        } else if (currentNumber === numberOfElements - 1) {
-            lastPositionOfElementNextClick()
-        } else {
-            middlePositionOfElementNextClick()
-        }
+        const positions = getNextPosition(prevNumber, currentNumber, nextNumber, numberOfElements, 'right')
+        prevNumber = positions.prevNumber
+        currentNumber = positions.currentNumber
+        nextNumber = positions.nextNumber
     }
 
     const simulationPrevClick = () => {
         controlContainer.children[nextNumber].className = styles.imageDefault
         controlContainer.classList.add(styles.prevClick)
 
-        if (prevNumber === numberOfElements - 1) {
-            lastPositionOfElementPrevClick()
-        } else if (currentNumber === 1) {
-            firstPositionOfElementPrevClick()
-        } else {
-            middlePositionOfElementPrevClick()
-        }
+        const positions = getNextPosition(prevNumber, currentNumber, nextNumber, numberOfElements, 'left')
+        prevNumber = positions.prevNumber
+        currentNumber = positions.currentNumber
+        nextNumber = positions.nextNumber
     }
 
     controlContainer.addEventListener('transitionstart', () => {
