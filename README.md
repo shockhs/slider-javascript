@@ -5,7 +5,7 @@ Get simple slider for your application
 [demo](https://esaxco.github.io/slider-javascript/)
 
 ## Version
-3.5.0
+4.0.0
 
 ## Installation
 
@@ -60,7 +60,7 @@ yarn add vm-slider-js
     <script src="./dist/vm-slider-js.js"></script>
     <script>
         document.addEventListener("DOMContentLoaded", function (event) {
-            sliderJS('slider', {
+            new sliderJS('slider', {
                 width: 540,
                 timeout: 2000
             })
@@ -76,7 +76,7 @@ yarn add vm-slider-js
 ```
 import { sliderJS } from 'vm-slider-js'
 
-sliderJS('slider', {
+new sliderJS('slider', {
     width: 940,
     timeout: 2000,
 })
