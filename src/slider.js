@@ -60,6 +60,7 @@ export default (sliderName, { width = 940, height = 270, timeout = 3000, hideCon
         item.className = styles.imageDefault
     })
 
+    let blockedBlur = false
     let statusPresentation = true
     let nextNumber = 1
     let prevNumber = numberOfElements - 1
@@ -169,10 +170,14 @@ export default (sliderName, { width = 940, height = 270, timeout = 3000, hideCon
     )
 
     window.addEventListener('focus', () => {
-        resetInterval()
+        if(blockedBlur) {
+            resetInterval()
+            blockedBlur = false
+        }
     })
 
     window.addEventListener('blur', () => {
+        blockedBlur = true
         clearInterval(presentation)
     })
 
