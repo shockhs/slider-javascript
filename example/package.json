@@ -25,6 +25,6 @@
     "webpack-dev-server": "^3.11.0"
   },
   "dependencies": {
-    "vm-slider-js": "^3.9.0"
+    "vm-slider-js": "^4.0.0"
   }
 }

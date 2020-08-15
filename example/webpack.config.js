@@ -9,6 +9,7 @@ const isProduction = !isDevelopment
 module.exports = {
     entry: './src/index.js',
     output: {
+        publicPath: '/slider-javascript/',
         filename: '[name].js',
         path: path.resolve(__dirname, 'dist'),
     },
