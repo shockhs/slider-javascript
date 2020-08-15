@@ -3,6 +3,14 @@ import { getNextPosition } from './position'
 import Controls from './controls'
 
 export default class sliderJS {
+    /**
+     * @param {string} sliderName - slider container id
+     * @param {Object} config - configuration object
+     * @param {number} config.width - Set width of the elements
+     * @param {number} config.height - Set height of the elements
+     * @param {number} config.timeout - Set timeout for auto-sliding
+     * @param {boolean} config.hideControls - Hide controls bar
+     */
     constructor(sliderName, { width = 940, height = 270, timeout = 3000, hideControls = false } = {}) {
         this.slider = document.getElementById(sliderName)
         this.timeout = timeout
