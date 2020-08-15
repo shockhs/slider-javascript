@@ -22,6 +22,18 @@ module.exports = {
                 loader: 'svg-inline-loader',
             },
             {
+                test: /\.js$/,
+                exclude: /node-modules/,
+                use: [
+                    {
+                        loader: 'babel-loader',
+                        options: {
+                            presets: ['@babel/preset-env'],
+                        },
+                    },
+                ],
+            },
+            {
                 test: /\.css$/,
                 use: [
                     'style-loader',

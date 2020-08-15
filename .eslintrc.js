@@ -18,6 +18,7 @@ module.exports = {
                 ignoreUrls: true,
             },
         ],
+        'max-params': ['error', 3],
         'no-var': 'error',
         'no-unreachable': 'error',
         'no-useless-return': 'error',
