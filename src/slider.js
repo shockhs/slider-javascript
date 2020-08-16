@@ -1,6 +1,6 @@
 import styles from './assets/styles/slider.css'
-import { getNextPosition } from './position'
-import Controls from './controls'
+import PositionsController from './Controller'
+import Controls from './ControlsBar'
 
 export default class sliderJS {
     /**
@@ -32,6 +32,7 @@ export default class sliderJS {
             this.setRootStyle()
             this.activateContainer()
             this.setStartedParams()
+            this.setStartedPositions()
             this.addListenersForTransition()
             this.addListenersForTouchSwipe()
             this.addListenersForMouseSwipe()
@@ -58,6 +59,17 @@ export default class sliderJS {
         clearInterval(this.presentation)
     }
 
+    setPresentationInterval = () => {
+        this.presentation = setInterval(() => {
+            this.simulationNextClick()
+        }, this.timeout)
+    }
+
+    resetInterval = () => {
+        if (this.presentation) this.clearIntervalPresentation()
+        this.setPresentationInterval()
+    }
+
     getSliderParams = () => {
         this.slider.className = 'slider'
         this.defaultNumberOfElements = slider.children.length
@@ -72,26 +84,34 @@ export default class sliderJS {
 
     setStartedParams = () => {
         this.statusPresentation = true
-        this.nextNumber = 1
-        this.prevNumber = this.numberOfElements - 1
-        this.currentNumber = 0
         this.buttonBlocked = false
         this.startPosition = null
         this.setPresentationInterval()
-        this.controlContainer.children[this.prevNumber].className = `${styles.imageDefault} ${styles.prevNumber}`
-        this.controlContainer.children[this.currentNumber].className = `${styles.imageDefault} ${styles.currentNumber}`
-        this.controlContainer.children[this.nextNumber].className = `${styles.imageDefault} ${styles.nextNumber}`
+        this.positionsController = new PositionsController(this.numberOfElements)
     }
 
-    setPresentationInterval = () => {
-        this.presentation = setInterval(() => {
-            this.simulationNextClick()
-        }, this.timeout)
+    setStartedPositions() {
+        this.controlContainer.children[
+            this.positionsController.getPrev()
+        ].className = `${styles.imageDefault} ${styles.prevNumber}`
+        this.controlContainer.children[
+            this.positionsController.getCurrent()
+        ].className = `${styles.imageDefault} ${styles.currentNumber}`
+        this.controlContainer.children[
+            this.positionsController.getNext()
+        ].className = `${styles.imageDefault} ${styles.nextNumber}`
     }
 
-    resetInterval = () => {
-        if (this.presentation) this.clearIntervalPresentation()
-        this.setPresentationInterval()
+    simulationNextClick = () => {
+        this.controlContainer.children[this.positionsController.getPrev()].className = styles.imageDefault
+        this.controlContainer.classList.add(styles.nextClick)
+        this.positionsController.goNext()
+    }
+
+    simulationPrevClick = () => {
+        this.controlContainer.children[this.positionsController.getNext()].className = styles.imageDefault
+        this.controlContainer.classList.add(styles.prevClick)
+        this.positionsController.goPrev()
     }
 
     addListenersForTransition = () => {
@@ -100,9 +120,15 @@ export default class sliderJS {
         })
 
         this.controlContainer.addEventListener('transitionend', () => {
-            this.controlContainer.children[this.nextNumber].className = `${styles.imageDefault} ${styles.nextNumber}`
-            this.controlContainer.children[this.currentNumber].className = `${styles.imageDefault} ${styles.currentNumber}`
-            this.controlContainer.children[this.prevNumber].className = `${styles.imageDefault} ${styles.prevNumber}`
+            this.controlContainer.children[
+                this.positionsController.getNext()
+            ].className = `${styles.imageDefault} ${styles.nextNumber}`
+            this.controlContainer.children[
+                this.positionsController.getCurrent()
+            ].className = `${styles.imageDefault} ${styles.currentNumber}`
+            this.controlContainer.children[
+                this.positionsController.getPrev()
+            ].className = `${styles.imageDefault} ${styles.prevNumber}`
             this.controlContainer.className = styles.controlContainer
             this.buttonBlocked = false
         })
@@ -176,34 +202,6 @@ export default class sliderJS {
         window.addEventListener('blur', () => {
             this.clearIntervalPresentation()
         })
-    }
-
-    simulationNextClick = () => {
-        this.controlContainer.children[this.prevNumber].className = styles.imageDefault
-        this.controlContainer.classList.add(styles.nextClick)
-
-        const positions = getNextPosition(
-            { prevNumber: this.prevNumber, currentNumber: this.currentNumber, nextNumber: this.nextNumber },
-            this.numberOfElements,
-            'right'
-        )
-        this.prevNumber = positions.prevNumber
-        this.currentNumber = positions.currentNumber
-        this.nextNumber = positions.nextNumber
-    }
-
-    simulationPrevClick = () => {
-        this.controlContainer.children[this.nextNumber].className = styles.imageDefault
-        this.controlContainer.classList.add(styles.prevClick)
-
-        const positions = getNextPosition(
-            { prevNumber: this.prevNumber, currentNumber: this.currentNumber, nextNumber: this.nextNumber },
-            this.numberOfElements,
-            'left'
-        )
-        this.prevNumber = positions.prevNumber
-        this.currentNumber = positions.currentNumber
-        this.nextNumber = positions.nextNumber
     }
 
     activateContainer = () => {

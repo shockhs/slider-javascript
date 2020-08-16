@@ -5,7 +5,7 @@ Get simple slider for your application
 [demo](https://esaxco.github.io/slider-javascript/)
 
 ## Version
-4.1.0
+4.2.0
 
 ## Installation
 
@@ -60,10 +60,7 @@ yarn add vm-slider-js
     <script src="./dist/vm-slider-js.js"></script>
     <script>
         document.addEventListener("DOMContentLoaded", function (event) {
-            new sliderJS('slider', {
-                width: 540,
-                timeout: 2000
-            })
+            new sliderJS('slider', options)
         })
     </script>
 </body>
@@ -76,17 +73,17 @@ yarn add vm-slider-js
 ```
 import { sliderJS } from 'vm-slider-js'
 
-new sliderJS('slider', {
-    width: 940,
-    timeout: 2000,
-})
+new sliderJS('slider', options)
 ```
 
 # Options
 
-SliderJS supports 4 options which are all optional:
+You can pass the 2nd argument as an object with options
 
--   _hideControls_ - true / false (Default is false)
+SliderJS supports 5 options which are all optional:
+
 -   _width_ - size of images in (px) (Default 940)
 -   _height_ - height of images (px) (Default is 270)
+-   _iconSize_ - height of icons (px) (Default is 60)
 -   _timeout_ - auto sliding timer (ms) (Default is 3000)
+-   _hideControls_ - true / false (Default is false)
