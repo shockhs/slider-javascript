@@ -1,6 +1,6 @@
-import { sliderJS } from 'vm-slider-js'
+import { SliderJS } from 'vm-slider-js'
 
-new sliderJS('slider', {
+new SliderJS('slider', {
     width: 940,
     height: 340,
     iconSize: 60,
