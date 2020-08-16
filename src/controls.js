@@ -1,11 +1,24 @@
-import svgOuterHTMLElement from './assets/icons/svg'
+import svgPlayPauseBtn from './assets/icons/svg'
 import arrow from './assets/icons/arrow.svg'
 import down from './assets/icons/down.svg'
 import styles from './assets/styles/slider.css'
 
 export default class Controls {
-    constructor(slider, functions) {
+    /**
+     * @param {external:Node} sliderName - Slider container
+     * @param {number} iconSize - Set height of the icons
+     * @param {Object} functions - Functions for control
+     * @param {callback} functions.clearIntervalPresentation - Callback for clearing interval
+     * @param {callback} functions.resetInterval - Callback for setting interval
+     * @param {callback} functions.getStatusPresentation - Callback for getting current status
+     * @param {callback} functions.setStatusPresentation - Callback for setting status
+     * @param {callback} functions.simulationNextClick - Callback for sliding to the right
+     * @param {callback} functions.simulationPrevClick - Callback for sliding to the left
+     * @param {callback} functions.getButtonBlockedStatus - Callback for getting buttonBlocked status
+     */
+    constructor(slider, iconSize, functions) {
         this.slider = slider
+        this.iconSize = iconSize
         this.clearIntervalPresentation = functions.clearIntervalPresentation
         this.resetInterval = functions.resetInterval
         this.getStatusPresentation = functions.getStatusPresentation
@@ -15,12 +28,18 @@ export default class Controls {
         this.getButtonBlockedStatus = functions.getButtonBlockedStatus
         this.statusButtonsVisibility = true
 
+        this.setIconSize()
         this.createButtonsContainer()
         this.addPlayPauseButton()
         this.addOtherButtons()
         this.addListenerForHideButton()
         this.addListenerForPlayPauseButton()
         this.addListenersForSlideButtons()
+    }
+
+    setIconSize() {
+        const root = document.documentElement
+        root.style.setProperty('--buttonHeight', `${this.iconSize}px`)
     }
 
     createButtonsContainer() {
@@ -30,10 +49,8 @@ export default class Controls {
     }
 
     addPlayPauseButton() {
-        this.btnPlayPause = document.createElement('button') /// fix innerhtml
-        const btnPlayPauseSVG = document.createElement('div')
-        this.btnPlayPause.append(btnPlayPauseSVG)
-        btnPlayPauseSVG.outerHTML = svgOuterHTMLElement
+        this.btnPlayPause = document.createElement('button')
+        this.btnPlayPause.innerHTML = svgPlayPauseBtn
 
         this.btnPlayPause.className = styles.playPauseBtn
         this.lefttoplay = this.btnPlayPause.getElementsByClassName('lefttoplay')[0]

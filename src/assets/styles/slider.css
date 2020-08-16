@@ -1,6 +1,7 @@
 :root {
     --checkedWidth: 940px;
     --height: 270px;
+    --buttonHeight: 60px;
 }
 .controlContainer {
     position: relative;
@@ -18,9 +19,9 @@
 
 .buttonContainer {
     outline: none;
-    width: calc(var(--checkedWidth) - 100px);
+    width: var(--checkedWidth);
     bottom: 0;
-    padding: 10px;
+    padding: 10px 20px;
     margin-top: 10px;
     display: -webkit-box;
     display: -ms-flexbox;
@@ -49,7 +50,8 @@
 }
 
 .btnHideActionBar svg {
-    height: 60px;
+    height: var(--buttonHeight);
+    width: auto;
 }
 
 .btnPrev {
@@ -67,7 +69,8 @@
     -webkit-transition: opacity 0.7s ease-in-out;
     -o-transition: opacity 0.7s ease-in-out;
     transition: opacity 0.7s ease-in-out;
-    height: 60px;
+    height: var(--buttonHeight);
+    width: auto;
 }
 
 .btnNext {
@@ -85,8 +88,8 @@
 
 .btnNext svg {
     fill: #000;
-    width: 100px;
-    height: 60px;
+    width: auto;
+    height: var(--buttonHeight);
     -webkit-transition: opacity 0.7s ease-in-out;
     -o-transition: opacity 0.7s ease-in-out;
     transition: opacity 0.7s ease-in-out;
@@ -104,8 +107,8 @@
     backface-visibility: hidden;
 }
 
-
-.singleImage, .imageDefault img {
+.singleImage,
+.imageDefault img {
     width: var(--checkedWidth);
     height: var(--height);
 }
@@ -121,7 +124,8 @@ img {
 
 .slider .playPauseBtn svg {
     fill: #000;
-    height: 60px;
+    height: var(--buttonHeight);
+    width: auto;
     -webkit-transition: opacity 0.7s ease-in-out;
     -o-transition: opacity 0.7s ease-in-out;
     transition: opacity 0.7s ease-in-out;
@@ -196,4 +200,3 @@ button:disabled {
     z-index: 0;
     left: var(--checkedWidth);
 }
-
