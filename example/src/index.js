@@ -1,5 +1,4 @@
-import SliderJS  from 'vm-slider-js'
-console.log(SliderJS);
+import { SliderJS } from 'vm-slider-js'
 
 new SliderJS('slider', {
     width: 940,
