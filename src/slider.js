@@ -43,21 +43,13 @@ export default class sliderJS {
         }
     }
 
-    getStatusPresentation = () => {
-        return this.statusPresentation
-    }
+    getStatusPresentation = () => this.statusPresentation
+    
+    getButtonBlockedStatus = () => this.buttonBlocked
 
-    getButtonBlockedStatus = () => {
-        return this.buttonBlocked
-    }
+    setStatusPresentation = (status) => (this.statusPresentation = status)
 
-    setStatusPresentation = (status) => {
-        this.statusPresentation = status
-    }
-
-    clearIntervalPresentation = () => {
-        clearInterval(this.presentation)
-    }
+    clearIntervalPresentation = () => clearInterval(this.presentation)
 
     setPresentationInterval = () => {
         this.presentation = setInterval(() => {
