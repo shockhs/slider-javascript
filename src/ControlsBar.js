@@ -16,20 +16,30 @@ export default class Controls {
      * @param {callback} functions.simulationPrevClick - Callback for sliding to the left
      * @param {callback} functions.getButtonBlockedStatus - Callback for getting buttonBlocked status
      */
-    constructor(slider, iconSize, functions) {
-        this.slider = slider
-        this.iconSize = iconSize
-        this.clearIntervalPresentation = functions.clearIntervalPresentation
-        this.resetInterval = functions.resetInterval
-        this.getStatusPresentation = functions.getStatusPresentation
-        this.setStatusPresentation = functions.setStatusPresentation
-        this.simulationNextClick = functions.simulationNextClick
-        this.simulationPrevClick = functions.simulationPrevClick
-        this.getButtonBlockedStatus = functions.getButtonBlockedStatus
+    constructor(
+        slider,
+        iconSize,
+        {
+            clearIntervalPresentation,
+            resetInterval,
+            getStatusPresentation,
+            setStatusPresentation,
+            simulationNextClick,
+            simulationPrevClick,
+            getButtonBlockedStatus,
+        }
+    ) {
+        this.clearIntervalPresentation = clearIntervalPresentation
+        this.resetInterval = resetInterval
+        this.getStatusPresentation = getStatusPresentation
+        this.setStatusPresentation = setStatusPresentation
+        this.simulationNextClick = simulationNextClick
+        this.simulationPrevClick = simulationPrevClick
+        this.getButtonBlockedStatus = getButtonBlockedStatus
         this.statusButtonsVisibility = true
 
-        this.setIconSize()
-        this.createButtonsContainer()
+        this.setIconSize(iconSize)
+        this.createButtonsContainer(slider)
         this.addPlayPauseButton()
         this.addOtherButtons()
         this.addListenerForHideButton()
@@ -37,21 +47,20 @@ export default class Controls {
         this.addListenersForSlideButtons()
     }
 
-    setIconSize() {
+    setIconSize(iconSize) {
         const root = document.documentElement
-        root.style.setProperty('--buttonHeight', `${this.iconSize}px`)
+        root.style.setProperty('--buttonHeight', `${iconSize}px`)
     }
 
-    createButtonsContainer() {
+    createButtonsContainer(slider) {
         this.buttonContainer = document.createElement('div')
         this.buttonContainer.className = styles.buttonContainer
-        this.slider.append(this.buttonContainer)
+        slider.append(this.buttonContainer)
     }
 
     addPlayPauseButton() {
         this.btnPlayPause = document.createElement('button')
         this.btnPlayPause.innerHTML = svgPlayPauseBtn
-
         this.btnPlayPause.className = styles.playPauseBtn
         this.lefttoplay = this.btnPlayPause.getElementsByClassName('lefttoplay')[0]
         this.righttoplay = this.btnPlayPause.getElementsByClassName('righttoplay')[0]

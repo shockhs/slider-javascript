@@ -2,7 +2,7 @@ import styles from './assets/styles/slider.css'
 import PositionsController from './Controller'
 import Controls from './ControlsBar'
 
-export default class sliderJS {
+export default class SliderJS {
     /**
      * @param {string} sliderName - slider container id
      * @param {Object} config - configuration object
@@ -15,31 +15,13 @@ export default class sliderJS {
     constructor(sliderName, { width = 940, height = 270, iconSize = 60, timeout = 3000, hideControls = false } = {}) {
         this.slider = document.getElementById(sliderName)
         this.timeout = timeout
-        this.hideControls = hideControls
-        this.iconSize = iconSize
-        this.height = height
         this.checkedWidth = window.innerWidth > 0 && window.innerWidth >= width ? width : window.innerWidth
 
         if (this.slider) {
             this.getSliderParams()
+            this.setSlider({ height, iconSize, hideControls })
         } else {
-            console.log(`Не был найден слайдер с id ${sliderName}`)
-        }
-
-        if (this.defaultNumberOfElements < 1) {
-            console.log('Слайдер не содержит элементов внутри')
-        } else {
-            this.setRootStyle()
-            this.activateContainer()
-            this.setStartedParams()
-            this.setStartedPositions()
-            this.addListenersForTransition()
-            this.addListenersForTouchSwipe()
-            this.addListenersForMouseSwipe()
-            this.addListenersForWindow()
-            if (!hideControls && window.innerWidth >= 724) {
-                this.addControls()
-            }
+            throw new Exeption(`Не был найден слайдер с id ${sliderName}`)
         }
     }
 
@@ -50,6 +32,24 @@ export default class sliderJS {
     setStatusPresentation = (status) => (this.statusPresentation = status)
 
     clearIntervalPresentation = () => clearInterval(this.presentation)
+
+    setSlider({ height, iconSize, hideControls }) {
+        if (this.defaultNumberOfElements < 1) {
+            throw new Exeption('Слайдер не содержит элементов внутри')
+        } else {
+            this.setRootStyle(height)
+            this.activateContainer()
+            this.setStartedParams()
+            this.setStartedPositions()
+            this.addListenersForTransition()
+            this.addListenersForTouchSwipe()
+            this.addListenersForMouseSwipe()
+            this.addListenersForWindow()
+            if (!hideControls && window.innerWidth >= 724) {
+                this.addControls(iconSize)
+            }
+        }
+    }
 
     setPresentationInterval = () => {
         this.presentation = setInterval(() => {
@@ -68,10 +68,10 @@ export default class sliderJS {
         this.numberOfElements = this.defaultNumberOfElements
     }
 
-    setRootStyle = () => {
+    setRootStyle = (height) => {
         const root = document.documentElement
         root.style.setProperty('--checkedWidth', `${this.checkedWidth}px`)
-        root.style.setProperty('--height', `${this.height}px`)
+        root.style.setProperty('--height', `${height}px`)
     }
 
     setStartedParams = () => {
@@ -237,8 +237,8 @@ export default class sliderJS {
         this.numberOfElements += 2
     }
 
-    addControls = () => {
-        this.controls = new Controls(this.slider, this.iconSize, {
+    addControls = (iconSize) => {
+        this.controls = new Controls(this.slider, iconSize, {
             clearIntervalPresentation: this.clearIntervalPresentation,
             resetInterval: this.resetInterval,
             getStatusPresentation: this.getStatusPresentation,

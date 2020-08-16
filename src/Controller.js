@@ -3,36 +3,28 @@ import { getNextPosition } from './utils'
 export default class PositionsController {
     constructor(numberOfElements) {
         this.numberOfElements = numberOfElements
-        this.nextNumber = 1
-        this.prevNumber = this.numberOfElements - 1
         this.currentNumber = 0
     }
 
-    getPrev = () => this.prevNumber
+    getPrev = () => (this.currentNumber === 0 ? this.numberOfElements - 1 : this.currentNumber - 1)
 
     getCurrent = () => this.currentNumber
 
-    getNext = () => this.nextNumber
+    getNext = () => (this.currentNumber === this.numberOfElements - 1 ? 0 : this.currentNumber + 1)
 
     goNext = () => {
-        const positions = getNextPosition(
-            { prevNumber: this.prevNumber, currentNumber: this.currentNumber, nextNumber: this.nextNumber },
+        this.currentNumber = getNextPosition(
+            { prevNumber: this.getPrev(), currentNumber: this.currentNumber, nextNumber: this.getNext() },
             this.numberOfElements,
             'right'
         )
-        this.prevNumber = positions.prevNumber
-        this.currentNumber = positions.currentNumber
-        this.nextNumber = positions.nextNumber
     }
 
     goPrev = () => {
-        const positions = getNextPosition(
-            { prevNumber: this.prevNumber, currentNumber: this.currentNumber, nextNumber: this.nextNumber },
+        this.currentNumber = getNextPosition(
+            { prevNumber: this.getPrev(), currentNumber: this.currentNumber, nextNumber: this.getNext() },
             this.numberOfElements,
             'left'
         )
-        this.prevNumber = positions.prevNumber
-        this.currentNumber = positions.currentNumber
-        this.nextNumber = positions.nextNumber
     }
 }
