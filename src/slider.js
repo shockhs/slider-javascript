@@ -44,7 +44,7 @@ export default class sliderJS {
     }
 
     getStatusPresentation = () => this.statusPresentation
-    
+
     getButtonBlockedStatus = () => this.buttonBlocked
 
     setStatusPresentation = (status) => (this.statusPresentation = status)
