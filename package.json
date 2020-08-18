@@ -9,6 +9,9 @@
         "type": "git",
         "url": "https://github.com/EsaxCO/slider-javascript.git"
     },
+    "keywords": [
+        "slider"
+    ],
     "license": "MIT",
     "author": "Vagan Mkrtchyan <perfoma777@mail.ru>",
     "scripts": {
