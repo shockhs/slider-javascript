@@ -5,7 +5,7 @@ Get simple slider for your application
 [demo](https://esaxco.github.io/slider-javascript/)
 
 ## Version
-4.4.0
+4.6.0
 
 ## Installation
 
